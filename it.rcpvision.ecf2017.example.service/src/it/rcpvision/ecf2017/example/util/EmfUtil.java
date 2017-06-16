@@ -23,7 +23,7 @@ public class EmfUtil {
 		}
 	}
 
-	public static boolean isNewObject(EObject eobject) {
+	public boolean isNewObject(EObject eobject) {
 		return eobject.eResource()!=null;
 	}
 	

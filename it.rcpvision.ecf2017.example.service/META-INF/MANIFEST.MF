@@ -14,3 +14,4 @@ Require-Bundle: org.eclipse.osgi,
 Import-Package: com.google.inject;version="1.3.0",
  it.rcpvision.ecf2017.example.model.carsharing,
  org.eclipse.emf.cdo;version="4.5.0";resolution:=optional
+Bundle-ActivationPolicy: lazy

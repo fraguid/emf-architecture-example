@@ -59,8 +59,8 @@ public class VehicleRepositoryCdoImpl implements IVehicleRepository{
 	}
 
 	@Override
-	public List<Vehicle> queryAll() {
-		return resource.getContents().stream().map(Vehicle.class::cast).collect(Collectors.toList());
+	public List queryAll() {
+		return resource.getContents();
 	}
 
 }

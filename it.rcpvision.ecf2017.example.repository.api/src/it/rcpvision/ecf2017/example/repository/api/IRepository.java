@@ -12,5 +12,5 @@ public interface IRepository<T extends EObject> {
 	void update(T obj) throws RepositoryException;
 	void delete(T obj) throws RepositoryException;
 	T getByKey(Object key);
-	List<T> queryAll();
+	List queryAll();
 }

@@ -8,7 +8,7 @@ import it.rcpvision.ecf2017.example.repository.api.exception.RepositoryException
 
 public interface IViewerService<T extends EObject> {
 
-	public List<T> getAll();
+	public List getAll();
 	
 	public void save(T obj) throws RepositoryException;
 	

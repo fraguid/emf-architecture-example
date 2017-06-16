@@ -21,6 +21,8 @@ Import-Package: it.rcpvision.ecf2017.example.model.carsharing,
  it.rcpvision.ecf2017.example.model.carsharing.util,
  org.apache.commons.logging,
  org.apache.log4j,
- org.eclipse.emf.cdo;version="4.5.0";resolution:=optional
+ org.eclipse.emf.cdo;version="4.5.0";resolution:=optional,
+ org.eclipse.emf.parsley.cdo;resolution:=optional,
+ org.eclipse.emf.parsley.cdo.util;resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: it.rcpvision.ecf2017.example.ui.custom

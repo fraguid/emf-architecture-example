@@ -49,8 +49,8 @@ public class UserRepositoryDummy implements IUserRepository{
 	}
 
 	@Override
-	public List<User> queryAll() {
-		return resource.getContents().stream().map(User.class::cast).collect(Collectors.toList());
+	public List queryAll() {
+		return resource.getContents();
 	}
 
 }

@@ -1,7 +1,9 @@
 package it.rcpvision.ecf2017.example.service;
 
 import java.util.List;
+
 import com.google.inject.Inject;
+
 import it.rcpvision.ecf2017.example.ServiceActivator;
 import it.rcpvision.ecf2017.example.model.carsharing.CarsharingFactory;
 import it.rcpvision.ecf2017.example.model.carsharing.User;
@@ -16,7 +18,7 @@ public class UserService implements IViewerService<User> {
 
 	IUserRepository userRepository= ServiceActivator.getSingleton().getUserService();
 	
-	public List<User> getAll() {
+	public List getAll() {
 		return userRepository.queryAll();
 	}
 	

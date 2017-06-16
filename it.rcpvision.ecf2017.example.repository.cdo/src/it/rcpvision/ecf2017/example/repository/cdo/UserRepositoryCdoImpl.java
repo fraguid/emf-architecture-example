@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.osgi.service.component.annotations.Component;
@@ -23,11 +24,13 @@ public class UserRepositoryCdoImpl implements IUserRepository{
 	private CDOTransaction transaction;
 	
 	public UserRepositoryCdoImpl() {
-		User firstUser = CarsharingFactory.eINSTANCE.createUser();
-		firstUser.setName("pippo");
 		transaction= CDORepositoryActivator.getSingleton().openTransaction();
 		resource =transaction.getOrCreateResource(USER_RESOURCE_NAME);
-		resource.getContents().add(firstUser);
+		if(resource.getContents().isEmpty()) {
+			User firstUser = CarsharingFactory.eINSTANCE.createUser();
+			firstUser.setName("pippo");
+			resource.getContents().add(firstUser);
+		}
 	}
 	 
 
@@ -56,8 +59,8 @@ public class UserRepositoryCdoImpl implements IUserRepository{
 	}
 
 	@Override
-	public List<User> queryAll() {
-		return resource.getContents().stream().map(User.class::cast).collect(Collectors.toList());
+	public List queryAll() {
+		return resource.getContents();
 	}
 
 }
