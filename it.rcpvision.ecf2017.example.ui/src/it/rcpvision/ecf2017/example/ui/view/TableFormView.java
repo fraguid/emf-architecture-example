@@ -53,12 +53,11 @@ public abstract class TableFormView<V extends IViewerPresenter> extends ViewPart
         newButton.setText("Insert");
         newButton.addSelectionListener(uiUtil.createSelectionAdapter(()->{
         	Display.getCurrent().asyncExec(new Runnable() {
-				
 				@Override
 				public void run() {
 					Object newObject=presenter.newButtonPressed();
-//        			getViewer().refresh(true, true);
-//        			getViewer().setSelection(new StructuredSelection(newObject));
+					getViewer().refresh(true);
+        			getViewer().setSelection(new StructuredSelection(newObject));
 				}
 			});
         		}));
@@ -66,7 +65,9 @@ public abstract class TableFormView<V extends IViewerPresenter> extends ViewPart
 		Button saveButton = new Button(buttonContainer,SWT.NONE);
 		saveButton.setLayoutData(GridDataFactory.swtDefaults().create());
 		saveButton.setText("Save");
-		newButton.addSelectionListener(uiUtil.createSelectionAdapter(()->presenter.saveButtonPressed()));
+		saveButton.addSelectionListener(uiUtil.createSelectionAdapter(()->{
+					presenter.saveButtonPressed();
+			}));
 		
 	}
 
