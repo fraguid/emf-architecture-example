@@ -1,0 +1,26 @@
+import it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage
+import it.rcpvision.ecf2017.example.ui.presenter.IVehiclePresenter
+import it.rcpvision.ecf2017.example.ui.presenter.impl.VehiclePresenterImpl
+import it.rcpvision.ecf2017.example.ui.view.VehicleTableFormView
+import org.eclipse.emf.parsley.views.SaveableTableFormView
+
+module it.rcpvision.ecf2017.example.ui.vehicle {
+	
+	parts{
+		viewpart it.rcpvision.ecf2017.example.ui.view.vehicle {
+			viewname "Vehicle View"
+			viewclass VehicleTableFormView
+		}
+	}
+	
+	configurator{
+		eClass {
+			SaveableTableFormView -> CarsharingPackage.Literals.VEHICLE
+		}
+	}
+
+	bindings{
+		type IVehiclePresenter -> VehiclePresenterImpl
+	}
+	
+}

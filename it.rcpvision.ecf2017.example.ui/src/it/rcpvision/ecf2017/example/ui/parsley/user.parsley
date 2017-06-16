@@ -1,0 +1,33 @@
+import it.rcpvision.ecf2017.example.model.carsharing.User
+import it.rcpvision.ecf2017.example.ui.custom.ListUndoableEditingStrategy
+import it.rcpvision.ecf2017.example.ui.presenter.IUserPresenter
+import it.rcpvision.ecf2017.example.ui.presenter.impl.UserPresenterImpl
+import it.rcpvision.ecf2017.example.ui.view.UserTableFormView
+import org.eclipse.emf.parsley.edit.IEditingStrategy
+import org.eclipse.emf.parsley.ui.provider.TableColumnLabelProvider
+import it.rcpvision.ecf2017.example.ui.custom.DirtyRowsTableLabelProvider
+
+module it.rcpvision.ecf2017.example.ui.user {
+	 
+	parts{
+		viewpart it.rcpvision.ecf2017.example.ui.view.user {
+			viewname "User View"
+			viewclass UserTableFormView
+		}
+	}
+	
+	bindings{
+		type IUserPresenter -> UserPresenterImpl
+		type IEditingStrategy -> ListUndoableEditingStrategy
+		type TableColumnLabelProvider -> DirtyRowsTableLabelProvider
+		
+	}
+	
+	
+	featuresProvider{
+		features{
+			User -> name, surname
+		}
+	}
+	
+}
