@@ -6,11 +6,13 @@ import org.eclipse.emf.parsley.composite.TableFormFactory;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Inject;
@@ -35,11 +37,11 @@ public abstract class TableFormView<V extends IViewerPresenter> extends ViewPart
 
 	@Override
 	public void createPartControl(Composite parent) {
+		presenter.init();
 		parent.setLayout(GridLayoutFactory.fillDefaults().create());
 		tableFormComposite = tableFormFactory
 			.createTableFormMasterDetailComposite(parent, SWT.BORDER, getEClass());
 		tableFormComposite.update(presenter.getViewerInput());
-		tableFormComposite.getViewer().setContentProvider(new ArrayContentProvider());
 		tableFormComposite.setLayoutData(GridDataFactory.fillDefaults().grab(true, true).create());
 		addViewerActions();
 
@@ -49,7 +51,17 @@ public abstract class TableFormView<V extends IViewerPresenter> extends ViewPart
 		Button newButton = new Button(buttonContainer,SWT.NONE);
         newButton.setLayoutData(GridDataFactory.swtDefaults().grab(true, false).align(SWT.END, SWT.CENTER).create());
         newButton.setText("Insert");
-        newButton.addSelectionListener(uiUtil.createSelectionAdapter(()->presenter.newButtonPressed()));
+        newButton.addSelectionListener(uiUtil.createSelectionAdapter(()->{
+        	Display.getCurrent().asyncExec(new Runnable() {
+				
+				@Override
+				public void run() {
+					Object newObject=presenter.newButtonPressed();
+//        			getViewer().refresh(true, true);
+//        			getViewer().setSelection(new StructuredSelection(newObject));
+				}
+			});
+        		}));
     	
 		Button saveButton = new Button(buttonContainer,SWT.NONE);
 		saveButton.setLayoutData(GridDataFactory.swtDefaults().create());

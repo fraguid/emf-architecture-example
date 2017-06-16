@@ -10,11 +10,8 @@ import org.eclipse.swt.widgets.Display;
 
 import com.google.inject.Inject;
 
-import it.rcpvision.ecf2017.example.model.carsharing.CarsharingFactory;
-import it.rcpvision.ecf2017.example.model.carsharing.User;
 import it.rcpvision.ecf2017.example.repository.api.exception.RepositoryException;
 import it.rcpvision.ecf2017.example.service.IViewerService;
-import it.rcpvision.ecf2017.example.service.UserService;
 import it.rcpvision.ecf2017.example.ui.presenter.IViewerPresenter;
 import it.rcpvision.ecf2017.example.util.EmfUtil;
 
@@ -32,18 +29,23 @@ public abstract class AbstractViewerPresenter<T extends EObject, S extends IView
 	private EmfUtil emfUtil;
 	
 	@Override
-	public Object getViewerInput() {
+	public void init() {
 		List<T> allUsers = service.getAll();
 		allUsers.forEach(editingStrategy::prepare);
 		list.addAll(allUsers);
+	}
+	
+	@Override
+	public Object getViewerInput() {
 		return list;
 	}
 
 	@Override
-	public void newButtonPressed() {
+	public T newButtonPressed() {
 		T newObj=service.createNewObject();
 		editingStrategy.prepare(newObj);
 		list.add(newObj);
+		return newObj;
 	}
 
 	@Override
