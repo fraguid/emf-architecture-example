@@ -10,4 +10,3 @@ Require-Bundle: it.rcpvision.ecf2017.example.repository.api,
  org.eclipse.equinox.ds;bundle-version="1.4.400"
 Service-Component: OSGI-INF/it.rcpvision.ecf2017.example.repository.dummy.UserRepositoryDummy.xml,
  OSGI-INF/it.rcpvision.ecf2017.example.repository.dummy.VehicleRepositoryDummy.xml
-Bundle-ActivationPolicy: lazy
