@@ -18,7 +18,9 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getName <em>Name</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getId <em>Id</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getBrand <em>Brand</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getModel <em>Model</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getType <em>Type</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getPlate <em>Plate</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getSeats <em>Seats</em>}</li>
@@ -61,8 +63,8 @@ public class VehicleImpl extends CDOObjectImpl implements Vehicle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return (String)eGet(CarsharingPackage.Literals.VEHICLE__NAME, true);
+	public short getId() {
+		return (Short)eGet(CarsharingPackage.Literals.VEHICLE__ID, true);
 	}
 
 	/**
@@ -70,8 +72,44 @@ public class VehicleImpl extends CDOObjectImpl implements Vehicle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		eSet(CarsharingPackage.Literals.VEHICLE__NAME, newName);
+	public void setId(short newId) {
+		eSet(CarsharingPackage.Literals.VEHICLE__ID, newId);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getBrand() {
+		return (String)eGet(CarsharingPackage.Literals.VEHICLE__BRAND, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBrand(String newBrand) {
+		eSet(CarsharingPackage.Literals.VEHICLE__BRAND, newBrand);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getModel() {
+		return (String)eGet(CarsharingPackage.Literals.VEHICLE__MODEL, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModel(String newModel) {
+		eSet(CarsharingPackage.Literals.VEHICLE__MODEL, newModel);
 	}
 
 	/**

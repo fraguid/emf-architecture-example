@@ -51,7 +51,7 @@ public class UserRepositoryCdoImpl implements IUserRepository{
 	@Override
 	public User getByKey(Object key) {
 		for (EObject eobject : resource.getContents()) {
-			if(key.equals(((User)eobject).getName())) {
+			if(key.equals(((User)eobject).getId())) {
 				return (User)eobject;
 			}
 		}

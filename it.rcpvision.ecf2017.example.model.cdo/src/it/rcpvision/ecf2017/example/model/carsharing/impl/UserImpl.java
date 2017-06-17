@@ -20,6 +20,7 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.UserImpl#getId <em>Id</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.UserImpl#getName <em>Name</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.UserImpl#getSurname <em>Surname</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.UserImpl#getReservation <em>Reservation</em>}</li>
@@ -55,6 +56,24 @@ public class UserImpl extends CDOObjectImpl implements User {
 	@Override
 	protected int eStaticFeatureCount() {
 		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public short getId() {
+		return (Short)eGet(CarsharingPackage.Literals.USER__ID, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(short newId) {
+		eSet(CarsharingPackage.Literals.USER__ID, newId);
 	}
 
 	/**

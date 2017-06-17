@@ -135,7 +135,7 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUser_Name() {
+	public EAttribute getUser_Id() {
 		return (EAttribute)userEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -144,7 +144,7 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUser_Surname() {
+	public EAttribute getUser_Name() {
 		return (EAttribute)userEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -153,8 +153,17 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUser_Surname() {
+		return (EAttribute)userEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getUser_Reservation() {
-		return (EReference)userEClass.getEStructuralFeatures().get(2);
+		return (EReference)userEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -171,7 +180,7 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVehicle_Name() {
+	public EAttribute getVehicle_Id() {
 		return (EAttribute)vehicleEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -180,7 +189,7 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVehicle_Type() {
+	public EAttribute getVehicle_Brand() {
 		return (EAttribute)vehicleEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -189,7 +198,7 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVehicle_Plate() {
+	public EAttribute getVehicle_Model() {
 		return (EAttribute)vehicleEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -198,8 +207,26 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVehicle_Seats() {
+	public EAttribute getVehicle_Type() {
 		return (EAttribute)vehicleEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVehicle_Plate() {
+		return (EAttribute)vehicleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVehicle_Seats() {
+		return (EAttribute)vehicleEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -303,12 +330,15 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 
 		// Create classes and their features
 		userEClass = createEClass(USER);
+		createEAttribute(userEClass, USER__ID);
 		createEAttribute(userEClass, USER__NAME);
 		createEAttribute(userEClass, USER__SURNAME);
 		createEReference(userEClass, USER__RESERVATION);
 
 		vehicleEClass = createEClass(VEHICLE);
-		createEAttribute(vehicleEClass, VEHICLE__NAME);
+		createEAttribute(vehicleEClass, VEHICLE__ID);
+		createEAttribute(vehicleEClass, VEHICLE__BRAND);
+		createEAttribute(vehicleEClass, VEHICLE__MODEL);
 		createEAttribute(vehicleEClass, VEHICLE__TYPE);
 		createEAttribute(vehicleEClass, VEHICLE__PLATE);
 		createEAttribute(vehicleEClass, VEHICLE__SEATS);
@@ -356,12 +386,15 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(userEClass, User.class, "User", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUser_Id(), ecorePackage.getEShort(), "id", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUser_Name(), ecorePackage.getEString(), "name", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUser_Surname(), ecorePackage.getEString(), "surname", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUser_Reservation(), this.getReservation(), null, "reservation", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vehicleEClass, Vehicle.class, "Vehicle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVehicle_Name(), ecorePackage.getEString(), "name", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVehicle_Id(), ecorePackage.getEShort(), "id", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVehicle_Brand(), ecorePackage.getEString(), "brand", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVehicle_Model(), ecorePackage.getEString(), "model", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVehicle_Type(), this.getCarType(), "type", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVehicle_Plate(), ecorePackage.getEString(), "plate", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVehicle_Seats(), ecorePackage.getEInt(), "seats", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

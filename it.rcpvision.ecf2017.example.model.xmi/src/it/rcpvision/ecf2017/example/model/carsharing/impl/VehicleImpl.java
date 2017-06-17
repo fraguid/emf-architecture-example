@@ -21,7 +21,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getName <em>Name</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getId <em>Id</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getBrand <em>Brand</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getModel <em>Model</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getType <em>Type</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getPlate <em>Plate</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getSeats <em>Seats</em>}</li>
@@ -31,24 +33,64 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final short ID_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected short id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBrand() <em>Brand</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBrand()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BRAND_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getBrand() <em>Brand</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBrand()
+	 * @generated
+	 * @ordered
+	 */
+	protected String brand = BRAND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getModel() <em>Model</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MODEL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getModel() <em>Model</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String model = MODEL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -134,8 +176,8 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public short getId() {
+		return id;
 	}
 
 	/**
@@ -143,11 +185,53 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setId(short newId) {
+		short oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.VEHICLE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.VEHICLE__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getBrand() {
+		return brand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBrand(String newBrand) {
+		String oldBrand = brand;
+		brand = newBrand;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.VEHICLE__BRAND, oldBrand, brand));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getModel() {
+		return model;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModel(String newModel) {
+		String oldModel = model;
+		model = newModel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.VEHICLE__MODEL, oldModel, model));
 	}
 
 	/**
@@ -221,8 +305,12 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CarsharingPackage.VEHICLE__NAME:
-				return getName();
+			case CarsharingPackage.VEHICLE__ID:
+				return getId();
+			case CarsharingPackage.VEHICLE__BRAND:
+				return getBrand();
+			case CarsharingPackage.VEHICLE__MODEL:
+				return getModel();
 			case CarsharingPackage.VEHICLE__TYPE:
 				return getType();
 			case CarsharingPackage.VEHICLE__PLATE:
@@ -241,8 +329,14 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CarsharingPackage.VEHICLE__NAME:
-				setName((String)newValue);
+			case CarsharingPackage.VEHICLE__ID:
+				setId((Short)newValue);
+				return;
+			case CarsharingPackage.VEHICLE__BRAND:
+				setBrand((String)newValue);
+				return;
+			case CarsharingPackage.VEHICLE__MODEL:
+				setModel((String)newValue);
 				return;
 			case CarsharingPackage.VEHICLE__TYPE:
 				setType((CarType)newValue);
@@ -265,8 +359,14 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CarsharingPackage.VEHICLE__NAME:
-				setName(NAME_EDEFAULT);
+			case CarsharingPackage.VEHICLE__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case CarsharingPackage.VEHICLE__BRAND:
+				setBrand(BRAND_EDEFAULT);
+				return;
+			case CarsharingPackage.VEHICLE__MODEL:
+				setModel(MODEL_EDEFAULT);
 				return;
 			case CarsharingPackage.VEHICLE__TYPE:
 				setType(TYPE_EDEFAULT);
@@ -289,8 +389,12 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CarsharingPackage.VEHICLE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case CarsharingPackage.VEHICLE__ID:
+				return id != ID_EDEFAULT;
+			case CarsharingPackage.VEHICLE__BRAND:
+				return BRAND_EDEFAULT == null ? brand != null : !BRAND_EDEFAULT.equals(brand);
+			case CarsharingPackage.VEHICLE__MODEL:
+				return MODEL_EDEFAULT == null ? model != null : !MODEL_EDEFAULT.equals(model);
 			case CarsharingPackage.VEHICLE__TYPE:
 				return type != TYPE_EDEFAULT;
 			case CarsharingPackage.VEHICLE__PLATE:
@@ -311,8 +415,12 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
+		result.append(" (id: ");
+		result.append(id);
+		result.append(", brand: ");
+		result.append(brand);
+		result.append(", model: ");
+		result.append(model);
 		result.append(", type: ");
 		result.append(type);
 		result.append(", plate: ");

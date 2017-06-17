@@ -13,7 +13,9 @@ import org.eclipse.emf.cdo.CDOObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getName <em>Name</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getId <em>Id</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getBrand <em>Brand</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getModel <em>Model</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getType <em>Type</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getPlate <em>Plate</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getSeats <em>Seats</em>}</li>
@@ -26,30 +28,82 @@ import org.eclipse.emf.cdo.CDOObject;
  */
 public interface Vehicle extends CDOObject {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage#getVehicle_Name()
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(short)
+	 * @see it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage#getVehicle_Id()
 	 * @model
 	 * @generated
 	 */
-	String getName();
+	short getId();
 
 	/**
-	 * Sets the value of the '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setName(String value);
+	void setId(short value);
+
+	/**
+	 * Returns the value of the '<em><b>Brand</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Brand</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Brand</em>' attribute.
+	 * @see #setBrand(String)
+	 * @see it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage#getVehicle_Brand()
+	 * @model
+	 * @generated
+	 */
+	String getBrand();
+
+	/**
+	 * Sets the value of the '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getBrand <em>Brand</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Brand</em>' attribute.
+	 * @see #getBrand()
+	 * @generated
+	 */
+	void setBrand(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Model</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Model</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Model</em>' attribute.
+	 * @see #setModel(String)
+	 * @see it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage#getVehicle_Model()
+	 * @model
+	 * @generated
+	 */
+	String getModel();
+
+	/**
+	 * Sets the value of the '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getModel <em>Model</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Model</em>' attribute.
+	 * @see #getModel()
+	 * @generated
+	 */
+	void setModel(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.

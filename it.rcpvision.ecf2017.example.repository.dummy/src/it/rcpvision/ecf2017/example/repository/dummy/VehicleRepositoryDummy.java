@@ -19,7 +19,8 @@ public class VehicleRepositoryDummy implements IVehicleRepository{
 	Resource resource= new ResourceImpl();
 	public VehicleRepositoryDummy() {
 		Vehicle firstVehicle = CarsharingFactory.eINSTANCE.createVehicle();
-		firstVehicle.setName("Toyota Yaris");
+		firstVehicle.setBrand("Toyota");
+		firstVehicle.setModel("Yaris");
 		resource.getContents().add(firstVehicle);
 	}
 	 
@@ -41,7 +42,7 @@ public class VehicleRepositoryDummy implements IVehicleRepository{
 	@Override
 	public Vehicle getByKey(Object key) {
 		for (EObject eobject : resource.getContents()) {
-			if(key.equals(((Vehicle)eobject).getName())) {
+			if(key.equals(((Vehicle)eobject).getId())) {
 				return (Vehicle)eobject;
 			}
 		}

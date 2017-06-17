@@ -13,23 +13,16 @@ public class CdoUtil {
 
 	private static final String CDO_REPONAME = "data";
     private static final String CDO_SERVER = "localhost";
+	private static final String SERVER_TRANSPORT_TYPE = "tcp";
+	private static final String SERVER_PORT = "2036";
 	
-	static CDOMemServer serverSingleton;
 	static CDOSession sessionSingleton;
-	
-//	public static CDOMemServer getorCreateServerInstance() {
-//		if(serverSingleton==null) {
-//			serverSingleton = new CDOMemServer(CDO_REPONAME,CarsharingPackage.eINSTANCE);
-//			serverSingleton.start();
-//		}
-//		return serverSingleton;
-//	}
 	
 	public static CDOSession getOreCreateSession() {
 		if(sessionSingleton==null) {
 			CDONet4jSessionConfiguration sessionConfiguration = CDONet4jUtil.createNet4jSessionConfiguration();
 			sessionConfiguration.setRepositoryName(CDO_REPONAME);
-			IConnector connector = Net4jUtil.getConnector(IPluginContainer.INSTANCE, CDOMemServer.SERVER_TRANSPORT_TYPE, CDO_SERVER + ":" + CDOMemServer.SERVER_PORT);
+			IConnector connector = Net4jUtil.getConnector(IPluginContainer.INSTANCE, SERVER_TRANSPORT_TYPE, CDO_SERVER + ":" + SERVER_PORT);
 			sessionConfiguration.setConnector(connector);
 			sessionSingleton=sessionConfiguration.openNet4jSession();
 		}

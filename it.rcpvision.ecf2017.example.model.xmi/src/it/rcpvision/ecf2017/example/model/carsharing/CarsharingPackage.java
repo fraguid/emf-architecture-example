@@ -68,13 +68,22 @@ public interface CarsharingPackage extends EPackage {
 	int USER = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__ID = 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER__NAME = 0;
+	int USER__NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Surname</b></em>' attribute.
@@ -83,7 +92,7 @@ public interface CarsharingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__SURNAME = 1;
+	int USER__SURNAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Reservation</b></em>' reference list.
@@ -92,7 +101,7 @@ public interface CarsharingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__RESERVATION = 2;
+	int USER__RESERVATION = 3;
 
 	/**
 	 * The number of structural features of the '<em>User</em>' class.
@@ -101,7 +110,7 @@ public interface CarsharingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER_FEATURE_COUNT = 3;
+	int USER_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>User</em>' class.
@@ -123,13 +132,31 @@ public interface CarsharingPackage extends EPackage {
 	int VEHICLE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VEHICLE__NAME = 0;
+	int VEHICLE__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Brand</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VEHICLE__BRAND = 1;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VEHICLE__MODEL = 2;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -138,7 +165,7 @@ public interface CarsharingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VEHICLE__TYPE = 1;
+	int VEHICLE__TYPE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Plate</b></em>' attribute.
@@ -147,7 +174,7 @@ public interface CarsharingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VEHICLE__PLATE = 2;
+	int VEHICLE__PLATE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Seats</b></em>' attribute.
@@ -156,7 +183,7 @@ public interface CarsharingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VEHICLE__SEATS = 3;
+	int VEHICLE__SEATS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Vehicle</em>' class.
@@ -165,7 +192,7 @@ public interface CarsharingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VEHICLE_FEATURE_COUNT = 4;
+	int VEHICLE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Vehicle</em>' class.
@@ -281,6 +308,17 @@ public interface CarsharingPackage extends EPackage {
 	EClass getUser();
 
 	/**
+	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.User#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see it.rcpvision.ecf2017.example.model.carsharing.User#getId()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EAttribute getUser_Id();
+
+	/**
 	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.User#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -324,15 +362,37 @@ public interface CarsharingPackage extends EPackage {
 	EClass getVehicle();
 
 	/**
-	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getName()
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getId()
 	 * @see #getVehicle()
 	 * @generated
 	 */
-	EAttribute getVehicle_Name();
+	EAttribute getVehicle_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getBrand <em>Brand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Brand</em>'.
+	 * @see it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getBrand()
+	 * @see #getVehicle()
+	 * @generated
+	 */
+	EAttribute getVehicle_Brand();
+
+	/**
+	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Model</em>'.
+	 * @see it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getModel()
+	 * @see #getVehicle()
+	 * @generated
+	 */
+	EAttribute getVehicle_Model();
 
 	/**
 	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getType <em>Type</em>}'.
@@ -486,6 +546,14 @@ public interface CarsharingPackage extends EPackage {
 		EClass USER = eINSTANCE.getUser();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute USER__ID = eINSTANCE.getUser_Id();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -520,12 +588,28 @@ public interface CarsharingPackage extends EPackage {
 		EClass VEHICLE = eINSTANCE.getVehicle();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute VEHICLE__NAME = eINSTANCE.getVehicle_Name();
+		EAttribute VEHICLE__ID = eINSTANCE.getVehicle_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Brand</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VEHICLE__BRAND = eINSTANCE.getVehicle_Brand();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VEHICLE__MODEL = eINSTANCE.getVehicle_Model();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.

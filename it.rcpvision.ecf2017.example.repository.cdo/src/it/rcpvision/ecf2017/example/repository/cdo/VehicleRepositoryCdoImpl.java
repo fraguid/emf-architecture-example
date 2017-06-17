@@ -25,11 +25,12 @@ public class VehicleRepositoryCdoImpl implements IVehicleRepository{
 	private CDOTransaction transaction;
 	
 	public VehicleRepositoryCdoImpl() {
-		Vehicle firstUser = CarsharingFactory.eINSTANCE.createVehicle();
-		firstUser.setName("TOYOTA YARIS");
+		Vehicle firstVehicle = CarsharingFactory.eINSTANCE.createVehicle();
+		firstVehicle.setBrand("TOYOTA");
+		firstVehicle.setModel("YARIS");
 		transaction= CDORepositoryActivator.getSingleton().openTransaction();
 		resource =transaction.getOrCreateResource(VEHICLE_RESOURCE_NAME);
-		resource.getContents().add(firstUser);
+		resource.getContents().add(firstVehicle);
 	}
 	 
 	 
@@ -51,7 +52,7 @@ public class VehicleRepositoryCdoImpl implements IVehicleRepository{
 	@Override
 	public Vehicle getByKey(Object key) {
 		for (EObject eobject : resource.getContents()) {
-			if(key.equals(((Vehicle)eobject).getName())) {
+			if(key.equals(((Vehicle)eobject).getId())) {
 				return (Vehicle)eobject;
 			}
 		}

@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.UserImpl#getId <em>Id</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.UserImpl#getName <em>Name</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.UserImpl#getSurname <em>Surname</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.UserImpl#getReservation <em>Reservation</em>}</li>
@@ -35,6 +36,26 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * @generated
  */
 public class UserImpl extends MinimalEObjectImpl.Container implements User {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final short ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected short id = ID_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -109,6 +130,27 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public short getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(short newId) {
+		short oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.USER__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getName() {
 		return name;
 	}
@@ -166,6 +208,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case CarsharingPackage.USER__ID:
+				return getId();
 			case CarsharingPackage.USER__NAME:
 				return getName();
 			case CarsharingPackage.USER__SURNAME:
@@ -185,6 +229,9 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CarsharingPackage.USER__ID:
+				setId((Short)newValue);
+				return;
 			case CarsharingPackage.USER__NAME:
 				setName((String)newValue);
 				return;
@@ -207,6 +254,9 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CarsharingPackage.USER__ID:
+				setId(ID_EDEFAULT);
+				return;
 			case CarsharingPackage.USER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -228,6 +278,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case CarsharingPackage.USER__ID:
+				return id != ID_EDEFAULT;
 			case CarsharingPackage.USER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CarsharingPackage.USER__SURNAME:
@@ -248,7 +300,9 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
+		result.append(" (id: ");
+		result.append(id);
+		result.append(", name: ");
 		result.append(name);
 		result.append(", surname: ");
 		result.append(surname);
