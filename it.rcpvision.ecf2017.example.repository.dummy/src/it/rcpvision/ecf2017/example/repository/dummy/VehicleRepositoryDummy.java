@@ -16,7 +16,7 @@ import it.rcpvision.ecf2017.example.repository.api.exception.RepositoryException
 @Component
 public class VehicleRepositoryDummy implements IVehicleRepository{
 	
-	Resource resource= new ResourceImpl();
+	Resource resource= DummyRepositoryActivator.getSingleton().createResosurce();
 	public VehicleRepositoryDummy() {
 		Vehicle firstVehicle = CarsharingFactory.eINSTANCE.createVehicle();
 		firstVehicle.setBrand("Toyota");

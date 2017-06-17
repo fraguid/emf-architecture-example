@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
+import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -37,15 +38,19 @@ public class UserRepositoryCdoImpl implements IUserRepository{
 	@Override
 	public void insert(User obj)  throws RepositoryException {
 		resource.getContents().add(obj);
+		commit();
 	}
+
 
 	@Override
 	public void update(User obj) throws RepositoryException {
+		commit();
 	}
 
 	@Override
 	public void delete(User obj) throws RepositoryException {
 		resource.getContents().remove(obj);
+		commit();
 	}
 
 	@Override
@@ -61,6 +66,14 @@ public class UserRepositoryCdoImpl implements IUserRepository{
 	@Override
 	public List queryAll() {
 		return resource.getContents();
+	}
+	
+	private void commit() throws RepositoryException {
+		try {
+			transaction.commit();
+		} catch (CommitException e) {
+			throw new RepositoryException(e); 
+		}
 	}
 
 }

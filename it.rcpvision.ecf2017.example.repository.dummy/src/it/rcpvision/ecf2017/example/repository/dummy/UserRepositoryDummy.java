@@ -16,7 +16,7 @@ import it.rcpvision.ecf2017.example.repository.api.exception.RepositoryException
 @Component
 public class UserRepositoryDummy implements IUserRepository{
 	
-	Resource resource= new ResourceImpl();
+	Resource resource= DummyRepositoryActivator.getSingleton().createResosurce();
 	public UserRepositoryDummy() {
 		User firstUser = CarsharingFactory.eINSTANCE.createUser();
 		firstUser.setName("pippo");

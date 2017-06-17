@@ -25,4 +25,5 @@ Import-Package: it.rcpvision.ecf2017.example.model.carsharing,
  org.eclipse.emf.parsley.cdo;resolution:=optional,
  org.eclipse.emf.parsley.cdo.util;resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: it.rcpvision.ecf2017.example.ui.custom
+Export-Package: it.rcpvision.ecf2017.example.ui,
+ it.rcpvision.ecf2017.example.ui.custom

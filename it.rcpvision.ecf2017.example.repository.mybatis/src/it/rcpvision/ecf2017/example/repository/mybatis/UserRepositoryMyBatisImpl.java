@@ -24,9 +24,11 @@ public class UserRepositoryMyBatisImpl implements IUserRepository{
 	
 	
 	private PeopleMapper peopleMapper;
+	private Resource resource;
 
 	public UserRepositoryMyBatisImpl() {
 		peopleMapper= MybatisRepositoryActivator.getSingleton().getSqlSession().getMapper(PeopleMapper.class);
+		resource= MybatisRepositoryActivator.getSingleton().createResource("User");
 	}
 	 
 
@@ -57,11 +59,19 @@ public class UserRepositoryMyBatisImpl implements IUserRepository{
 	public List queryAll() {
 		List<User> ret= new ArrayList<User>();
 		for (People dbPeople : peopleMapper.selectByExample(new PeopleExample())) {
-			ret.add(createUserFromDbPeople(dbPeople));
+			ret.add(checkForResource(createUserFromDbPeople(dbPeople)));
 		}
 		return ret;
 	}
 	
+	private User checkForResource(User user) {
+		if(user.eResource()==null) {
+			resource.getContents().add(user);
+		}
+		return user;
+	}
+
+
 	private User createUserFromDbPeople(People dbPeople) {
 		User user= CarsharingFactory.eINSTANCE.createUser();
 		user.setName(dbPeople.getName());

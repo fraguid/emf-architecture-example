@@ -8,6 +8,8 @@ import it.rcpvision.ecf2017.example.ui.view.UserTableFormView
 import org.eclipse.emf.parsley.edit.IEditingStrategy
 import org.eclipse.emf.parsley.edit.ui.provider.TableViewerContentProvider
 import org.eclipse.emf.parsley.ui.provider.TableColumnLabelProvider
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain
+import org.eclipse.emf.parsley.edit.domain.GlobalAdapterFactoryEditingDomainProvider
 
 module it.rcpvision.ecf2017.example.ui.user {
 	 
@@ -23,6 +25,7 @@ module it.rcpvision.ecf2017.example.ui.user {
 		type IEditingStrategy -> ListUndoableEditingStrategy
 		type TableColumnLabelProvider -> DirtyRowsTableLabelProvider
 		type TableViewerContentProvider -> ArrayTableViewerContentProvider
+		provide AdapterFactoryEditingDomain -> GlobalAdapterFactoryEditingDomainProvider
 	}
 	
 	featuresProvider{

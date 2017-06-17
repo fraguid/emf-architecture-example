@@ -5,7 +5,9 @@ import it.rcpvision.ecf2017.example.ui.custom.ListUndoableEditingStrategy
 import it.rcpvision.ecf2017.example.ui.presenter.IVehiclePresenter
 import it.rcpvision.ecf2017.example.ui.presenter.impl.VehiclePresenterImpl
 import it.rcpvision.ecf2017.example.ui.view.VehicleTableFormView
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain
 import org.eclipse.emf.parsley.edit.IEditingStrategy
+import org.eclipse.emf.parsley.edit.domain.GlobalAdapterFactoryEditingDomainProvider
 import org.eclipse.emf.parsley.edit.ui.provider.TableViewerContentProvider
 import org.eclipse.emf.parsley.ui.provider.TableColumnLabelProvider
 import org.eclipse.emf.parsley.views.SaveableTableFormView
@@ -30,6 +32,7 @@ module it.rcpvision.ecf2017.example.ui.vehicle {
 		type IEditingStrategy -> ListUndoableEditingStrategy
 		type TableColumnLabelProvider -> DirtyRowsTableLabelProvider
 		type TableViewerContentProvider -> ArrayTableViewerContentProvider
+		provide AdapterFactoryEditingDomain -> GlobalAdapterFactoryEditingDomainProvider
 	}
 	
 }

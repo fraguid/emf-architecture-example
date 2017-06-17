@@ -24,7 +24,7 @@ public class EmfUtil {
 	}
 
 	public boolean isNewObject(EObject eobject) {
-		return eobject.eResource()!=null;
+		return eobject.eResource()==null;
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

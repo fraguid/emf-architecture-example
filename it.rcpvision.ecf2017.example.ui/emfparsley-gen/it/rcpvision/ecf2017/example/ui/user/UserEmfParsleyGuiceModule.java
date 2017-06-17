@@ -1,13 +1,16 @@
 package it.rcpvision.ecf2017.example.ui.user;
 
+import com.google.inject.Provider;
 import it.rcpvision.ecf2017.example.ui.custom.ArrayTableViewerContentProvider;
 import it.rcpvision.ecf2017.example.ui.custom.DirtyRowsTableLabelProvider;
 import it.rcpvision.ecf2017.example.ui.custom.ListUndoableEditingStrategy;
 import it.rcpvision.ecf2017.example.ui.presenter.IUserPresenter;
 import it.rcpvision.ecf2017.example.ui.presenter.impl.UserPresenterImpl;
 import it.rcpvision.ecf2017.example.ui.user.ui.provider.UserFeaturesProvider;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.parsley.EmfParsleyGuiceModule;
 import org.eclipse.emf.parsley.edit.IEditingStrategy;
+import org.eclipse.emf.parsley.edit.domain.GlobalAdapterFactoryEditingDomainProvider;
 import org.eclipse.emf.parsley.edit.ui.provider.TableViewerContentProvider;
 import org.eclipse.emf.parsley.ui.provider.FeaturesProvider;
 import org.eclipse.emf.parsley.ui.provider.TableColumnLabelProvider;
@@ -36,6 +39,11 @@ public class UserEmfParsleyGuiceModule extends EmfParsleyGuiceModule {
   @Override
   public Class<? extends TableViewerContentProvider> bindTableViewerContentProvider() {
     return ArrayTableViewerContentProvider.class;
+  }
+  
+  @Override
+  public Class<? extends Provider<AdapterFactoryEditingDomain>> provideAdapterFactoryEditingDomain() {
+    return GlobalAdapterFactoryEditingDomainProvider.class;
   }
   
   @Override
