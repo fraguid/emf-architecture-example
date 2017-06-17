@@ -50,7 +50,7 @@ public abstract class AbstractViewerPresenter<T extends EObject, S extends IView
 
 	@Override
 	public void saveButtonPressed() {
-		list.forEach(editingStrategy::prepare);
+		list.forEach(editingStrategy::update);
 		list.forEach(arg0 -> {
 			try {
 				service.save(arg0);
