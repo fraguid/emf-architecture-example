@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="it.rcpvision.ecf2017.example.repository.mybatis.UserRepositoryMyBatisImpl">
+   <service>
+      <provide interface="it.rcpvision.ecf2017.example.repository.api.IUserRepository"/>
+   </service>
+   <implementation class="it.rcpvision.ecf2017.example.repository.mybatis.UserRepositoryMyBatisImpl"/>
+</scr:component>

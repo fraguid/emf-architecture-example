@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Db
+Bundle-SymbolicName: it.rcpvision.ecf2017.example.repository.mybatis
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Service-Component: OSGI-INF/it.rcpvision.ecf2017.example.repository.mybatis.UserRepositoryMyBatisImpl.xml,
+ OSGI-INF/it.rcpvision.ecf2017.example.repository.mybatis.VehicleRepositoryMyBatisImpl.xml
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.osgi,
+ org.eclipse.emf.ecore,
+ it.rcpvision.ecf2017.example.repository.api;bundle-version="1.0.0",
+ it.rcpvision.ecf2017.example.model.xmi;bundle-version="1.0.0"
+Bundle-ClassPath: .,
+ lib/mybatis-3.3.0.jar,
+ lib/ojdbc6.jar
+Bundle-Activator: it.rcpvision.ecf2017.example.repository.mybatis.MybatisRepositoryActivator
