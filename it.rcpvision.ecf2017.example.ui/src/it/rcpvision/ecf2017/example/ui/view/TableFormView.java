@@ -33,7 +33,7 @@ public abstract class TableFormView<V extends IViewerPresenter> extends ViewPart
 
 	private TableFormComposite tableFormComposite;
 
-	private Composite buttonContainer;
+	protected Composite buttonContainer;
 
 	@Override
 	public void createPartControl(Composite parent) {
@@ -46,8 +46,14 @@ public abstract class TableFormView<V extends IViewerPresenter> extends ViewPart
 		addViewerActions();
 
 		buttonContainer= new Composite(parent,SWT.NONE);
-		buttonContainer.setLayout(new GridLayout(2,false));
+		buttonContainer.setLayout(new GridLayout(getButtonNumber(),false));
 		buttonContainer.setLayoutData(GridDataFactory.fillDefaults().create());
+		addButtons();
+		
+	}
+
+
+	protected void addButtons() {
 		Button newButton = new Button(buttonContainer,SWT.NONE);
         newButton.setLayoutData(GridDataFactory.swtDefaults().grab(true, false).align(SWT.END, SWT.CENTER).create());
         newButton.setText("Insert");
@@ -68,8 +74,8 @@ public abstract class TableFormView<V extends IViewerPresenter> extends ViewPart
 		saveButton.addSelectionListener(uiUtil.createSelectionAdapter(()->{
 					presenter.saveButtonPressed();
 			}));
-		
 	}
+
 
 	protected abstract void addViewerActions() ;
 	
@@ -84,4 +90,7 @@ public abstract class TableFormView<V extends IViewerPresenter> extends ViewPart
 		return tableFormComposite.getViewer();
 	}
 
+	protected int getButtonNumber() {
+		return 2;
+	}
 }

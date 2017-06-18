@@ -1,49 +1,51 @@
-package it.rcpvision.ecf2017.example.repository.dummy;
+package it.rcpvision.ecf2017.example.repository.cdo;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.cdo.eresource.CDOResource;
+import org.eclipse.emf.cdo.transaction.CDOTransaction;
+import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.osgi.service.component.annotations.Component;
 
 import it.rcpvision.ecf2017.example.model.carsharing.CarsharingFactory;
-import it.rcpvision.ecf2017.example.model.carsharing.Reservation;
-import it.rcpvision.ecf2017.example.model.carsharing.ReservationState;
 import it.rcpvision.ecf2017.example.model.carsharing.User;
-import it.rcpvision.ecf2017.example.model.carsharing.Vehicle;
 import it.rcpvision.ecf2017.example.repository.api.IUserRepository;
 import it.rcpvision.ecf2017.example.repository.api.exception.RepositoryException;
 
 @Component
-public class UserRepositoryDummy implements IUserRepository{
+public class ReservationRepositoryCdoImpl implements IUserRepository{
 	
-	Resource resource= DummyRepositoryActivator.getSingleton().createResosurce();
-	short counter=1;
+	private static final String RESERVATION_RESOURCE_NAME = "RESERVATION";
+	private CDOResource resource;
+	private CDOTransaction transaction;
 	
-	public UserRepositoryDummy() {
-		User firstUser = CarsharingFactory.eINSTANCE.createUser();
-		firstUser.setName("Francesco");
-		firstUser.setSurname("Guidieri");
-		resource.getContents().add(firstUser);
+	public ReservationRepositoryCdoImpl() {
+		transaction= CDORepositoryActivator.getSingleton().openTransaction();
+		resource =transaction.getOrCreateResource(RESERVATION_RESOURCE_NAME);
 	}
 	 
 
 	@Override
 	public void insert(User obj)  throws RepositoryException {
 		resource.getContents().add(obj);
-		checkForId(obj);
+		commit();
 	}
+
 
 	@Override
 	public void update(User obj) throws RepositoryException {
+		commit();
 	}
 
 	@Override
 	public void delete(User obj) throws RepositoryException {
 		resource.getContents().remove(obj);
+		commit();
 	}
 
 	@Override
@@ -58,22 +60,14 @@ public class UserRepositoryDummy implements IUserRepository{
 
 	@Override
 	public List queryAll() {
-		return prepare(resource.getContents());
-	}
-	
-	private List prepare(EList<EObject> contents) {
-		resource.getContents().stream().map(User.class::cast).forEach(u->prepareObject(u));
 		return resource.getContents();
 	}
-
-	private User prepareObject(User user) {
-		checkForId(user);
-		return user;
-	}
 	
-	private void checkForId(User user) {
-		if(user.getId()==0) {
-			user.setId(counter++);
+	private void commit() throws RepositoryException {
+		try {
+			transaction.commit();
+		} catch (CommitException e) {
+			throw new RepositoryException(e); 
 		}
 	}
 

@@ -4,12 +4,8 @@ package it.rcpvision.ecf2017.example.model.carsharing.impl;
 
 import it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage;
 import it.rcpvision.ecf2017.example.model.carsharing.Reservation;
-import it.rcpvision.ecf2017.example.model.carsharing.ReservationState;
 import it.rcpvision.ecf2017.example.model.carsharing.User;
 import it.rcpvision.ecf2017.example.model.carsharing.Vehicle;
-
-import java.util.Date;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -26,9 +22,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.ReservationImpl#getStart <em>Start</em>}</li>
- *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.ReservationImpl#getEnd <em>End</em>}</li>
- *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.ReservationImpl#getState <em>State</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.ReservationImpl#getVehicle <em>Vehicle</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.ReservationImpl#getUser <em>User</em>}</li>
  * </ul>
@@ -36,66 +29,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class ReservationImpl extends MinimalEObjectImpl.Container implements Reservation {
-	/**
-	 * The default value of the '{@link #getStart() <em>Start</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStart()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Date START_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getStart() <em>Start</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStart()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date start = START_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getEnd() <em>End</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEnd()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Date END_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getEnd() <em>End</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEnd()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date end = END_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getState() <em>State</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getState()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final ReservationState STATE_EDEFAULT = ReservationState.PENDING;
-
-	/**
-	 * The cached value of the '{@link #getState() <em>State</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getState()
-	 * @generated
-	 * @ordered
-	 */
-	protected ReservationState state = STATE_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getVehicle() <em>Vehicle</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -133,69 +66,6 @@ public class ReservationImpl extends MinimalEObjectImpl.Container implements Res
 	@Override
 	protected EClass eStaticClass() {
 		return CarsharingPackage.Literals.RESERVATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date getStart() {
-		return start;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStart(Date newStart) {
-		Date oldStart = start;
-		start = newStart;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.RESERVATION__START, oldStart, start));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date getEnd() {
-		return end;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEnd(Date newEnd) {
-		Date oldEnd = end;
-		end = newEnd;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.RESERVATION__END, oldEnd, end));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ReservationState getState() {
-		return state;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setState(ReservationState newState) {
-		ReservationState oldState = state;
-		state = newState == null ? STATE_EDEFAULT : newState;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.RESERVATION__STATE, oldState, state));
 	}
 
 	/**
@@ -282,12 +152,6 @@ public class ReservationImpl extends MinimalEObjectImpl.Container implements Res
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CarsharingPackage.RESERVATION__START:
-				return getStart();
-			case CarsharingPackage.RESERVATION__END:
-				return getEnd();
-			case CarsharingPackage.RESERVATION__STATE:
-				return getState();
 			case CarsharingPackage.RESERVATION__VEHICLE:
 				if (resolve) return getVehicle();
 				return basicGetVehicle();
@@ -306,15 +170,6 @@ public class ReservationImpl extends MinimalEObjectImpl.Container implements Res
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CarsharingPackage.RESERVATION__START:
-				setStart((Date)newValue);
-				return;
-			case CarsharingPackage.RESERVATION__END:
-				setEnd((Date)newValue);
-				return;
-			case CarsharingPackage.RESERVATION__STATE:
-				setState((ReservationState)newValue);
-				return;
 			case CarsharingPackage.RESERVATION__VEHICLE:
 				setVehicle((Vehicle)newValue);
 				return;
@@ -333,15 +188,6 @@ public class ReservationImpl extends MinimalEObjectImpl.Container implements Res
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CarsharingPackage.RESERVATION__START:
-				setStart(START_EDEFAULT);
-				return;
-			case CarsharingPackage.RESERVATION__END:
-				setEnd(END_EDEFAULT);
-				return;
-			case CarsharingPackage.RESERVATION__STATE:
-				setState(STATE_EDEFAULT);
-				return;
 			case CarsharingPackage.RESERVATION__VEHICLE:
 				setVehicle((Vehicle)null);
 				return;
@@ -360,38 +206,12 @@ public class ReservationImpl extends MinimalEObjectImpl.Container implements Res
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CarsharingPackage.RESERVATION__START:
-				return START_EDEFAULT == null ? start != null : !START_EDEFAULT.equals(start);
-			case CarsharingPackage.RESERVATION__END:
-				return END_EDEFAULT == null ? end != null : !END_EDEFAULT.equals(end);
-			case CarsharingPackage.RESERVATION__STATE:
-				return state != STATE_EDEFAULT;
 			case CarsharingPackage.RESERVATION__VEHICLE:
 				return vehicle != null;
 			case CarsharingPackage.RESERVATION__USER:
 				return user != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (start: ");
-		result.append(start);
-		result.append(", end: ");
-		result.append(end);
-		result.append(", state: ");
-		result.append(state);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ReservationImpl

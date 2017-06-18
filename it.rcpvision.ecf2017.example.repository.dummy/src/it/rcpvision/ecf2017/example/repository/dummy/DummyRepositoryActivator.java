@@ -4,6 +4,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.parsley.EmfParsleyGuiceModule;
 import org.eclipse.emf.parsley.EmfParsleyJavaGuiceModule;
 import org.eclipse.emf.parsley.edit.domain.GlobalAdapterFactoryEditingDomainProvider;
@@ -21,6 +22,7 @@ public class DummyRepositoryActivator implements  BundleActivator {
 	
 	private static DummyRepositoryActivator singleton;
 	ResourceSet rs;
+	private AdapterFactoryEditingDomain editingDomain;
 
 	@Override
 	public void start(BundleContext context) throws Exception {
@@ -32,7 +34,8 @@ public class DummyRepositoryActivator implements  BundleActivator {
 		Injector injector = Guice.createInjector(new EmfParsleyGuiceModule(UiActivator.getDefault()));
 		GlobalAdapterFactoryEditingDomainProvider provider = injector
 				.getInstance(GlobalAdapterFactoryEditingDomainProvider.class);
-		rs = provider.get().getResourceSet();
+		editingDomain = provider.get();
+		rs = editingDomain.getResourceSet();
 		
 		singleton= this;
 	}

@@ -15,6 +15,7 @@ Require-Bundle: it.rcpvision.ecf2017.example.repository.api,
  org.eclipse.ui;bundle-version="3.109.0";resolution:=optional,
  it.rcpvision.ecf2017.example.ui;bundle-version="1.0.0"
 Service-Component: OSGI-INF/it.rcpvision.ecf2017.example.repository.dummy.UserRepositoryDummy.xml,
- OSGI-INF/it.rcpvision.ecf2017.example.repository.dummy.VehicleRepositoryDummy.xml
+ OSGI-INF/it.rcpvision.ecf2017.example.repository.dummy.VehicleRepositoryDummy.xml,
+ OSGI-INF/it.rcpvision.ecf2017.example.repository.dummy.ReservationRepositoryDummy.xml
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: it.rcpvision.ecf2017.example.repository.dummy.DummyRepositoryActivator

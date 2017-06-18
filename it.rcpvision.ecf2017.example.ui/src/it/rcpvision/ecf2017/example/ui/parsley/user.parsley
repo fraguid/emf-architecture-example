@@ -34,4 +34,10 @@ module it.rcpvision.ecf2017.example.ui.user {
 		}
 	}
 	
+	tableFeaturesProvider{
+		features{
+			User -> id, name, surname
+		}
+	}
+	
 }

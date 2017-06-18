@@ -19,26 +19,22 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ReservationState implements Enumerator {
 	/**
-	 * The '<em><b>Pending</b></em>' literal object.
+	 * The '<em><b>Free</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PENDING_VALUE
+	 * @see #FREE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PENDING(0, "pending", "pending"),
-
-	/**
-	 * The '<em><b>Approved</b></em>' literal object.
+	FREE(0, "free", "free"), /**
+	 * The '<em><b>Reserved</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #APPROVED_VALUE
+	 * @see #RESERVED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	APPROVED(1, "approved", "approved"),
-
-	/**
+	RESERVED(1, "reserved", "reserved"), /**
 	 * The '<em><b>Started</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,47 +42,37 @@ public enum ReservationState implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STARTED(2, "started", "started"),
+	STARTED(2, "started", "started");
 
 	/**
-	 * The '<em><b>Ended</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ENDED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ENDED(3, "ended", "ended");
-
-	/**
-	 * The '<em><b>Pending</b></em>' literal value.
+	 * The '<em><b>Free</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Pending</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Free</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #PENDING
-	 * @model name="pending"
+	 * @see #FREE
+	 * @model name="free"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PENDING_VALUE = 0;
+	public static final int FREE_VALUE = 0;
 
 	/**
-	 * The '<em><b>Approved</b></em>' literal value.
+	 * The '<em><b>Reserved</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Approved</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Reserved</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #APPROVED
-	 * @model name="approved"
+	 * @see #RESERVED
+	 * @model name="reserved"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int APPROVED_VALUE = 1;
+	public static final int RESERVED_VALUE = 1;
 
 	/**
 	 * The '<em><b>Started</b></em>' literal value.
@@ -104,21 +90,6 @@ public enum ReservationState implements Enumerator {
 	public static final int STARTED_VALUE = 2;
 
 	/**
-	 * The '<em><b>Ended</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Ended</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #ENDED
-	 * @model name="ended"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ENDED_VALUE = 3;
-
-	/**
 	 * An array of all the '<em><b>Reservation State</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,10 +97,9 @@ public enum ReservationState implements Enumerator {
 	 */
 	private static final ReservationState[] VALUES_ARRAY =
 		new ReservationState[] {
-			PENDING,
-			APPROVED,
+			FREE,
+			RESERVED,
 			STARTED,
-			ENDED,
 		};
 
 	/**
@@ -186,10 +156,9 @@ public enum ReservationState implements Enumerator {
 	 */
 	public static ReservationState get(int value) {
 		switch (value) {
-			case PENDING_VALUE: return PENDING;
-			case APPROVED_VALUE: return APPROVED;
+			case FREE_VALUE: return FREE;
+			case RESERVED_VALUE: return RESERVED;
 			case STARTED_VALUE: return STARTED;
-			case ENDED_VALUE: return ENDED;
 		}
 		return null;
 	}

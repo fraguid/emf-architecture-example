@@ -4,8 +4,11 @@ Bundle-Name: Api
 Bundle-SymbolicName: it.rcpvision.ecf2017.example.repository.api
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.eclipse.emf.ecore
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.osgi
 Import-Package: it.rcpvision.ecf2017.example.model.carsharing,
  org.eclipse.emf.cdo;version="4.5.0";resolution:=optional
 Export-Package: it.rcpvision.ecf2017.example.repository.api,
  it.rcpvision.ecf2017.example.repository.api.exception
+Bundle-Activator: it.rcpvision.ecf2017.example.repository.api.RepositoryApiActivator
+Bundle-ActivationPolicy: lazy

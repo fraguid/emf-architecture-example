@@ -225,7 +225,7 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVehicle_Seats() {
+	public EAttribute getVehicle_ReservationState() {
 		return (EAttribute)vehicleEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -243,35 +243,8 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReservation_Start() {
-		return (EAttribute)reservationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReservation_End() {
-		return (EAttribute)reservationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReservation_State() {
-		return (EAttribute)reservationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getReservation_Vehicle() {
-		return (EReference)reservationEClass.getEStructuralFeatures().get(3);
+		return (EReference)reservationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -280,7 +253,7 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 	 * @generated
 	 */
 	public EReference getReservation_User() {
-		return (EReference)reservationEClass.getEStructuralFeatures().get(4);
+		return (EReference)reservationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -341,12 +314,9 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 		createEAttribute(vehicleEClass, VEHICLE__MODEL);
 		createEAttribute(vehicleEClass, VEHICLE__TYPE);
 		createEAttribute(vehicleEClass, VEHICLE__PLATE);
-		createEAttribute(vehicleEClass, VEHICLE__SEATS);
+		createEAttribute(vehicleEClass, VEHICLE__RESERVATION_STATE);
 
 		reservationEClass = createEClass(RESERVATION);
-		createEAttribute(reservationEClass, RESERVATION__START);
-		createEAttribute(reservationEClass, RESERVATION__END);
-		createEAttribute(reservationEClass, RESERVATION__STATE);
 		createEReference(reservationEClass, RESERVATION__VEHICLE);
 		createEReference(reservationEClass, RESERVATION__USER);
 
@@ -397,12 +367,9 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 		initEAttribute(getVehicle_Model(), ecorePackage.getEString(), "model", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVehicle_Type(), this.getCarType(), "type", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVehicle_Plate(), ecorePackage.getEString(), "plate", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVehicle_Seats(), ecorePackage.getEInt(), "seats", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVehicle_ReservationState(), this.getReservationState(), "reservationState", null, 0, 1, Vehicle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(reservationEClass, Reservation.class, "Reservation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReservation_Start(), ecorePackage.getEDate(), "start", null, 0, 1, Reservation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReservation_End(), ecorePackage.getEDate(), "end", null, 0, 1, Reservation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReservation_State(), this.getReservationState(), "state", null, 0, 1, Reservation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReservation_Vehicle(), this.getVehicle(), null, "vehicle", null, 0, 1, Reservation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReservation_User(), this.getUser(), null, "user", null, 0, 1, Reservation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -412,10 +379,9 @@ public class CarsharingPackageImpl extends EPackageImpl implements CarsharingPac
 		addEEnumLiteral(carTypeEEnum, CarType.VAN);
 
 		initEEnum(reservationStateEEnum, ReservationState.class, "ReservationState");
-		addEEnumLiteral(reservationStateEEnum, ReservationState.PENDING);
-		addEEnumLiteral(reservationStateEEnum, ReservationState.APPROVED);
+		addEEnumLiteral(reservationStateEEnum, ReservationState.FREE);
+		addEEnumLiteral(reservationStateEEnum, ReservationState.RESERVED);
 		addEEnumLiteral(reservationStateEEnum, ReservationState.STARTED);
-		addEEnumLiteral(reservationStateEEnum, ReservationState.ENDED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -10,16 +10,10 @@ import it.rcpvision.ecf2017.example.repository.api.IVehicleRepository;
 
 public class ServiceActivator implements BundleActivator {
 
-	private IUserRepository userService;
-	private IVehicleRepository vehicleService;
-	
 	private static ServiceActivator singleton; 
 
 	@Override
 	public void start(BundleContext context) throws Exception {
-		System.out.println(context.getServiceReference(IUserRepository.class));
-		userService=retrieveServiceImplementation(context, IUserRepository.class);
-		vehicleService=retrieveServiceImplementation(context, IVehicleRepository.class);
 		singleton= this;
 	}
 
@@ -36,14 +30,6 @@ public class ServiceActivator implements BundleActivator {
 
 	public static ServiceActivator getSingleton() {
 		return singleton;
-	}
-
-	public IUserRepository getUserService() {
-		return userService;
-	}
-	
-	public IVehicleRepository getVehicleRepository() {
-		return vehicleService;
 	}
 
 }

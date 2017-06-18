@@ -7,6 +7,7 @@ import it.rcpvision.ecf2017.example.ui.custom.ListUndoableEditingStrategy;
 import it.rcpvision.ecf2017.example.ui.presenter.IUserPresenter;
 import it.rcpvision.ecf2017.example.ui.presenter.impl.UserPresenterImpl;
 import it.rcpvision.ecf2017.example.ui.user.ui.provider.UserFeaturesProvider;
+import it.rcpvision.ecf2017.example.ui.user.ui.provider.UserTableFeaturesProvider;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.parsley.EmfParsleyGuiceModule;
 import org.eclipse.emf.parsley.edit.IEditingStrategy;
@@ -14,6 +15,7 @@ import org.eclipse.emf.parsley.edit.domain.GlobalAdapterFactoryEditingDomainProv
 import org.eclipse.emf.parsley.edit.ui.provider.TableViewerContentProvider;
 import org.eclipse.emf.parsley.ui.provider.FeaturesProvider;
 import org.eclipse.emf.parsley.ui.provider.TableColumnLabelProvider;
+import org.eclipse.emf.parsley.ui.provider.TableFeaturesProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 @SuppressWarnings("all")
@@ -49,5 +51,10 @@ public class UserEmfParsleyGuiceModule extends EmfParsleyGuiceModule {
   @Override
   public Class<? extends FeaturesProvider> bindFeaturesProvider() {
     return UserFeaturesProvider.class;
+  }
+  
+  @Override
+  public Class<? extends TableFeaturesProvider> bindTableFeaturesProvider() {
+    return UserTableFeaturesProvider.class;
   }
 }

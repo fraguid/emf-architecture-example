@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getModel <em>Model</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getType <em>Type</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getPlate <em>Plate</em>}</li>
- *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getSeats <em>Seats</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getReservationState <em>Reservation State</em>}</li>
  * </ul>
  *
  * @see it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage#getVehicle()
@@ -160,29 +160,32 @@ public interface Vehicle extends EObject {
 	void setPlate(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Seats</b></em>' attribute.
+	 * Returns the value of the '<em><b>Reservation State</b></em>' attribute.
+	 * The literals are from the enumeration {@link it.rcpvision.ecf2017.example.model.carsharing.ReservationState}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Seats</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Reservation State</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Seats</em>' attribute.
-	 * @see #setSeats(int)
-	 * @see it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage#getVehicle_Seats()
+	 * @return the value of the '<em>Reservation State</em>' attribute.
+	 * @see it.rcpvision.ecf2017.example.model.carsharing.ReservationState
+	 * @see #setReservationState(ReservationState)
+	 * @see it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage#getVehicle_ReservationState()
 	 * @model
 	 * @generated
 	 */
-	int getSeats();
+	ReservationState getReservationState();
 
 	/**
-	 * Sets the value of the '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getSeats <em>Seats</em>}' attribute.
+	 * Sets the value of the '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getReservationState <em>Reservation State</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Seats</em>' attribute.
-	 * @see #getSeats()
+	 * @param value the new value of the '<em>Reservation State</em>' attribute.
+	 * @see it.rcpvision.ecf2017.example.model.carsharing.ReservationState
+	 * @see #getReservationState()
 	 * @generated
 	 */
-	void setSeats(int value);
+	void setReservationState(ReservationState value);
 
 } // Vehicle

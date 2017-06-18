@@ -11,6 +11,9 @@ import org.eclipse.emf.parsley.edit.domain.GlobalAdapterFactoryEditingDomainProv
 import org.eclipse.emf.parsley.edit.ui.provider.TableViewerContentProvider
 import org.eclipse.emf.parsley.ui.provider.TableColumnLabelProvider
 import org.eclipse.emf.parsley.views.SaveableTableFormView
+import org.eclipse.emf.parsley.composite.ProposalCreator
+import it.rcpvision.ecf2017.example.ui.custom.ReservationProposalCreator
+import it.rcpvision.ecf2017.example.model.carsharing.Vehicle
 
 module it.rcpvision.ecf2017.example.ui.vehicle {
 	
@@ -33,6 +36,19 @@ module it.rcpvision.ecf2017.example.ui.vehicle {
 		type TableColumnLabelProvider -> DirtyRowsTableLabelProvider
 		type TableViewerContentProvider -> ArrayTableViewerContentProvider
 		provide AdapterFactoryEditingDomain -> GlobalAdapterFactoryEditingDomainProvider
+		type ProposalCreator -> ReservationProposalCreator
+	}
+	
+	tableFeaturesProvider{
+		features{
+			Vehicle -> id, brand, model, ^type, plate ,reservationState
+		}
+	}
+	
+	featuresProvider{
+		features{
+			Vehicle -> brand, model, ^type, plate
+		}
 	}
 	
 }

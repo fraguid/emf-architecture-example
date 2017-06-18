@@ -5,7 +5,8 @@ Bundle-SymbolicName: it.rcpvision.ecf2017.example.repository.mybatis
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Service-Component: OSGI-INF/it.rcpvision.ecf2017.example.repository.mybatis.UserRepositoryMyBatisImpl.xml,
- OSGI-INF/it.rcpvision.ecf2017.example.repository.mybatis.VehicleRepositoryMyBatisImpl.xml
+ OSGI-INF/it.rcpvision.ecf2017.example.repository.mybatis.VehicleRepositoryMyBatisImpl.xml,
+ OSGI-INF/it.rcpvision.ecf2017.example.repository.mybatis.ReservationRepositoryMyBatisImpl.xml
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.osgi,
  org.eclipse.emf.ecore,

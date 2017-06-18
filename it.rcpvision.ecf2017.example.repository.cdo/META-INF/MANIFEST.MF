@@ -19,5 +19,7 @@ Require-Bundle: org.eclipse.osgi.services;bundle-version="3.5.100",
  com.google.inject,
  org.eclipse.emf.parsley.common
 Service-Component: OSGI-INF/it.rcpvision.ecf2017.example.repository.cdo.UserRepositoryCdoImpl.xml,
- OSGI-INF/it.rcpvision.ecf2017.example.repository.cdo.VehicleRepositoryCdoImpl.xml
+ OSGI-INF/it.rcpvision.ecf2017.example.repository.cdo.VehicleRepositoryCdoImpl.xml,
+ OSGI-INF/it.rcpvision.ecf2017.example.repository.cdo.ReservationRepositoryCdoImpl.xml
 Bundle-Activator: it.rcpvision.ecf2017.example.repository.cdo.CDORepositoryActivator
+Bundle-ActivationPolicy: lazy

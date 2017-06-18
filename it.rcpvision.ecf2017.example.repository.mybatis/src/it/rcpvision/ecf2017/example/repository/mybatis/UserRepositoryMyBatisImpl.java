@@ -52,7 +52,7 @@ public class UserRepositoryMyBatisImpl implements IUserRepository{
 	@Override
 	public User getByKey(Object key) {
 		People dbPeople = peopleMapper.selectByPrimaryKey((Short)key);
-		return createUserFromDbPeople(dbPeople);
+		return checkForResource(createUserFromDbPeople(dbPeople));
 	}
 
 	@Override

@@ -23,7 +23,7 @@ public abstract class AbstractViewerPresenter<T extends EObject, S extends IView
 	List<T> list = new WritableList<T>();
 	
 	@Inject
-	private S service;
+	protected S service;
 	
 	@Inject
 	private EmfUtil emfUtil;

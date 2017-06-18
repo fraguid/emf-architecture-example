@@ -4,6 +4,7 @@ package it.rcpvision.ecf2017.example.model.carsharing.impl;
 
 import it.rcpvision.ecf2017.example.model.carsharing.CarType;
 import it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage;
+import it.rcpvision.ecf2017.example.model.carsharing.ReservationState;
 import it.rcpvision.ecf2017.example.model.carsharing.Vehicle;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getModel <em>Model</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getType <em>Type</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getPlate <em>Plate</em>}</li>
- *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getSeats <em>Seats</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getReservationState <em>Reservation State</em>}</li>
  * </ul>
  *
  * @generated
@@ -133,24 +134,24 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	protected String plate = PLATE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSeats() <em>Seats</em>}' attribute.
+	 * The default value of the '{@link #getReservationState() <em>Reservation State</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSeats()
+	 * @see #getReservationState()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int SEATS_EDEFAULT = 0;
+	protected static final ReservationState RESERVATION_STATE_EDEFAULT = ReservationState.FREE;
 
 	/**
-	 * The cached value of the '{@link #getSeats() <em>Seats</em>}' attribute.
+	 * The cached value of the '{@link #getReservationState() <em>Reservation State</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSeats()
+	 * @see #getReservationState()
 	 * @generated
 	 * @ordered
 	 */
-	protected int seats = SEATS_EDEFAULT;
+	protected ReservationState reservationState = RESERVATION_STATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -281,8 +282,8 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getSeats() {
-		return seats;
+	public ReservationState getReservationState() {
+		return reservationState;
 	}
 
 	/**
@@ -290,11 +291,11 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSeats(int newSeats) {
-		int oldSeats = seats;
-		seats = newSeats;
+	public void setReservationState(ReservationState newReservationState) {
+		ReservationState oldReservationState = reservationState;
+		reservationState = newReservationState == null ? RESERVATION_STATE_EDEFAULT : newReservationState;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.VEHICLE__SEATS, oldSeats, seats));
+			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.VEHICLE__RESERVATION_STATE, oldReservationState, reservationState));
 	}
 
 	/**
@@ -315,8 +316,8 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 				return getType();
 			case CarsharingPackage.VEHICLE__PLATE:
 				return getPlate();
-			case CarsharingPackage.VEHICLE__SEATS:
-				return getSeats();
+			case CarsharingPackage.VEHICLE__RESERVATION_STATE:
+				return getReservationState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -344,8 +345,8 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 			case CarsharingPackage.VEHICLE__PLATE:
 				setPlate((String)newValue);
 				return;
-			case CarsharingPackage.VEHICLE__SEATS:
-				setSeats((Integer)newValue);
+			case CarsharingPackage.VEHICLE__RESERVATION_STATE:
+				setReservationState((ReservationState)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -374,8 +375,8 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 			case CarsharingPackage.VEHICLE__PLATE:
 				setPlate(PLATE_EDEFAULT);
 				return;
-			case CarsharingPackage.VEHICLE__SEATS:
-				setSeats(SEATS_EDEFAULT);
+			case CarsharingPackage.VEHICLE__RESERVATION_STATE:
+				setReservationState(RESERVATION_STATE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -399,8 +400,8 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 				return type != TYPE_EDEFAULT;
 			case CarsharingPackage.VEHICLE__PLATE:
 				return PLATE_EDEFAULT == null ? plate != null : !PLATE_EDEFAULT.equals(plate);
-			case CarsharingPackage.VEHICLE__SEATS:
-				return seats != SEATS_EDEFAULT;
+			case CarsharingPackage.VEHICLE__RESERVATION_STATE:
+				return reservationState != RESERVATION_STATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -425,10 +426,14 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 		result.append(type);
 		result.append(", plate: ");
 		result.append(plate);
-		result.append(", seats: ");
-		result.append(seats);
+		result.append(", reservationState: ");
+		result.append(reservationState);
 		result.append(')');
 		return result.toString();
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		return obj instanceof Vehicle && ((Vehicle)obj).getId()==getId();
+	}
 } //VehicleImpl

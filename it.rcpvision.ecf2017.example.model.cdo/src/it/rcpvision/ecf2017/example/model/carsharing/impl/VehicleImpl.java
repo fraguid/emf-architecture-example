@@ -4,6 +4,7 @@ package it.rcpvision.ecf2017.example.model.carsharing.impl;
 
 import it.rcpvision.ecf2017.example.model.carsharing.CarType;
 import it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage;
+import it.rcpvision.ecf2017.example.model.carsharing.ReservationState;
 import it.rcpvision.ecf2017.example.model.carsharing.Vehicle;
 
 import org.eclipse.emf.ecore.EClass;
@@ -23,7 +24,7 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getModel <em>Model</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getType <em>Type</em>}</li>
  *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getPlate <em>Plate</em>}</li>
- *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getSeats <em>Seats</em>}</li>
+ *   <li>{@link it.rcpvision.ecf2017.example.model.carsharing.impl.VehicleImpl#getReservationState <em>Reservation State</em>}</li>
  * </ul>
  *
  * @generated
@@ -153,8 +154,8 @@ public class VehicleImpl extends CDOObjectImpl implements Vehicle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getSeats() {
-		return (Integer)eGet(CarsharingPackage.Literals.VEHICLE__SEATS, true);
+	public ReservationState getReservationState() {
+		return (ReservationState)eGet(CarsharingPackage.Literals.VEHICLE__RESERVATION_STATE, true);
 	}
 
 	/**
@@ -162,8 +163,8 @@ public class VehicleImpl extends CDOObjectImpl implements Vehicle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSeats(int newSeats) {
-		eSet(CarsharingPackage.Literals.VEHICLE__SEATS, newSeats);
+	public void setReservationState(ReservationState newReservationState) {
+		eSet(CarsharingPackage.Literals.VEHICLE__RESERVATION_STATE, newReservationState);
 	}
 
 } //VehicleImpl

@@ -177,13 +177,13 @@ public interface CarsharingPackage extends EPackage {
 	int VEHICLE__PLATE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Seats</b></em>' attribute.
+	 * The feature id for the '<em><b>Reservation State</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VEHICLE__SEATS = 5;
+	int VEHICLE__RESERVATION_STATE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Vehicle</em>' class.
@@ -214,40 +214,13 @@ public interface CarsharingPackage extends EPackage {
 	int RESERVATION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Start</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESERVATION__START = 0;
-
-	/**
-	 * The feature id for the '<em><b>End</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESERVATION__END = 1;
-
-	/**
-	 * The feature id for the '<em><b>State</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESERVATION__STATE = 2;
-
-	/**
 	 * The feature id for the '<em><b>Vehicle</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESERVATION__VEHICLE = 3;
+	int RESERVATION__VEHICLE = 0;
 
 	/**
 	 * The feature id for the '<em><b>User</b></em>' reference.
@@ -256,7 +229,7 @@ public interface CarsharingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESERVATION__USER = 4;
+	int RESERVATION__USER = 1;
 
 	/**
 	 * The number of structural features of the '<em>Reservation</em>' class.
@@ -265,7 +238,7 @@ public interface CarsharingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESERVATION_FEATURE_COUNT = 5;
+	int RESERVATION_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Reservation</em>' class.
@@ -417,15 +390,15 @@ public interface CarsharingPackage extends EPackage {
 	EAttribute getVehicle_Plate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getSeats <em>Seats</em>}'.
+	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getReservationState <em>Reservation State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Seats</em>'.
-	 * @see it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getSeats()
+	 * @return the meta object for the attribute '<em>Reservation State</em>'.
+	 * @see it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getReservationState()
 	 * @see #getVehicle()
 	 * @generated
 	 */
-	EAttribute getVehicle_Seats();
+	EAttribute getVehicle_ReservationState();
 
 	/**
 	 * Returns the meta object for class '{@link it.rcpvision.ecf2017.example.model.carsharing.Reservation <em>Reservation</em>}'.
@@ -436,39 +409,6 @@ public interface CarsharingPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getReservation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.Reservation#getStart <em>Start</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Start</em>'.
-	 * @see it.rcpvision.ecf2017.example.model.carsharing.Reservation#getStart()
-	 * @see #getReservation()
-	 * @generated
-	 */
-	EAttribute getReservation_Start();
-
-	/**
-	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.Reservation#getEnd <em>End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>End</em>'.
-	 * @see it.rcpvision.ecf2017.example.model.carsharing.Reservation#getEnd()
-	 * @see #getReservation()
-	 * @generated
-	 */
-	EAttribute getReservation_End();
-
-	/**
-	 * Returns the meta object for the attribute '{@link it.rcpvision.ecf2017.example.model.carsharing.Reservation#getState <em>State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>State</em>'.
-	 * @see it.rcpvision.ecf2017.example.model.carsharing.Reservation#getState()
-	 * @see #getReservation()
-	 * @generated
-	 */
-	EAttribute getReservation_State();
 
 	/**
 	 * Returns the meta object for the reference '{@link it.rcpvision.ecf2017.example.model.carsharing.Reservation#getVehicle <em>Vehicle</em>}'.
@@ -628,12 +568,12 @@ public interface CarsharingPackage extends EPackage {
 		EAttribute VEHICLE__PLATE = eINSTANCE.getVehicle_Plate();
 
 		/**
-		 * The meta object literal for the '<em><b>Seats</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Reservation State</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute VEHICLE__SEATS = eINSTANCE.getVehicle_Seats();
+		EAttribute VEHICLE__RESERVATION_STATE = eINSTANCE.getVehicle_ReservationState();
 
 		/**
 		 * The meta object literal for the '{@link it.rcpvision.ecf2017.example.model.carsharing.impl.ReservationImpl <em>Reservation</em>}' class.
@@ -644,30 +584,6 @@ public interface CarsharingPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RESERVATION = eINSTANCE.getReservation();
-
-		/**
-		 * The meta object literal for the '<em><b>Start</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESERVATION__START = eINSTANCE.getReservation_Start();
-
-		/**
-		 * The meta object literal for the '<em><b>End</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESERVATION__END = eINSTANCE.getReservation_End();
-
-		/**
-		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESERVATION__STATE = eINSTANCE.getReservation_State();
 
 		/**
 		 * The meta object literal for the '<em><b>Vehicle</b></em>' reference feature.
