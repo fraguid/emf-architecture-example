@@ -47,6 +47,8 @@ public class VehicleRepositoryMyBatisImpl implements IVehicleRepository{
 	public void insert(Vehicle vehicle)  throws RepositoryException {
 		Car record= createDbCarFromVehicle(vehicle);
 		carMapper.insert(record);
+		vehicle.setId(Long.toString(carMapper.getLastId()));
+		checkForResource(vehicle);
 	}
 
 	@Override
@@ -57,7 +59,7 @@ public class VehicleRepositoryMyBatisImpl implements IVehicleRepository{
 
 	@Override
 	public void delete(Vehicle vehicle) throws RepositoryException {
-		carMapper.deleteByPrimaryKey(vehicle.getId());
+		carMapper.deleteByPrimaryKey(Short.parseShort(vehicle.getId()));
 	}
 
 	@Override
@@ -88,14 +90,16 @@ public class VehicleRepositoryMyBatisImpl implements IVehicleRepository{
 		List<Notification> notifications=null;
 		if(!newObject) {
 			notificationBuffer= extractNotificationBuffer(vehicle);
-			notifications = notificationBuffer.getNotifications();
-			notificationBuffer.stopBuffering();
+			if(notificationBuffer!=null) {
+				notifications = notificationBuffer.getNotifications();
+				notificationBuffer.stopBuffering();
+			}
 		}
 		vehicle.setModel(dbCar.getModel());
 		vehicle.setBrand(dbCar.getBrand());
 		vehicle.setModel(dbCar.getModel());
 		vehicle.setPlate(dbCar.getPlate());
-		vehicle.setId(dbCar.getId());
+		vehicle.setId(Integer.toString(dbCar.getId()));
 		switch (dbCar.getType()) {
 		case CarType.VAN_VALUE:
 			vehicle.setType(CarType.VAN);
@@ -108,7 +112,7 @@ public class VehicleRepositoryMyBatisImpl implements IVehicleRepository{
 		if(reservationsByVehicle.size()>0) {
 			vehicle.setReservationState(ReservationState.RESERVED);
 		}
-		if(!newObject) {
+		if(!newObject && notificationBuffer!=null) {
 			notificationBuffer.getNotifications().clear();
 			notificationBuffer.getNotifications().addAll(notifications);
 			notificationBuffer.startBuffering();
@@ -125,7 +129,9 @@ public class VehicleRepositoryMyBatisImpl implements IVehicleRepository{
 
 	private Car createDbCarFromVehicle(Vehicle vehicle) {
 		Car car=new Car();
-		car.setId(vehicle.getId());
+		if(vehicle.getId()!=null) {
+			car.setId(Short.parseShort(vehicle.getId()));
+		}
 		car.setBrand(vehicle.getBrand());
 		car.setModel(vehicle.getModel());
 		car.setPlate(vehicle.getPlate());

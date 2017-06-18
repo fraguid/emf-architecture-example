@@ -1,6 +1,7 @@
 package it.rcpvision.ecf2017.example.repository.cdo;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.cdo.eresource.CDOResource;
@@ -13,12 +14,13 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.osgi.service.component.annotations.Component;
 
 import it.rcpvision.ecf2017.example.model.carsharing.CarsharingFactory;
-import it.rcpvision.ecf2017.example.model.carsharing.User;
-import it.rcpvision.ecf2017.example.repository.api.IUserRepository;
+import it.rcpvision.ecf2017.example.model.carsharing.Reservation;
+import it.rcpvision.ecf2017.example.model.carsharing.Vehicle;
+import it.rcpvision.ecf2017.example.repository.api.IReservationRepository;
 import it.rcpvision.ecf2017.example.repository.api.exception.RepositoryException;
 
 @Component
-public class ReservationRepositoryCdoImpl implements IUserRepository{
+public class ReservationRepositoryCdoImpl implements IReservationRepository{
 	
 	private static final String RESERVATION_RESOURCE_NAME = "RESERVATION";
 	private CDOResource resource;
@@ -31,31 +33,26 @@ public class ReservationRepositoryCdoImpl implements IUserRepository{
 	 
 
 	@Override
-	public void insert(User obj)  throws RepositoryException {
+	public void insert(Reservation obj)  throws RepositoryException {
 		resource.getContents().add(obj);
 		commit();
 	}
 
 
 	@Override
-	public void update(User obj) throws RepositoryException {
+	public void update(Reservation obj) throws RepositoryException {
 		commit();
 	}
 
 	@Override
-	public void delete(User obj) throws RepositoryException {
+	public void delete(Reservation obj) throws RepositoryException {
 		resource.getContents().remove(obj);
 		commit();
 	}
 
 	@Override
-	public User getByKey(Object key) {
-		for (EObject eobject : resource.getContents()) {
-			if(key.equals(((User)eobject).getId())) {
-				return (User)eobject;
-			}
-		}
-		return null;
+	public Reservation getByKey(Object key) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -71,4 +68,15 @@ public class ReservationRepositoryCdoImpl implements IUserRepository{
 		}
 	}
 
+
+	@Override
+	public Reservation getActiveByVehicle(Vehicle vehicle) {
+		Optional<Reservation> reservationOptional = resource.getContents().stream().map(Reservation.class::cast)
+				.filter(r -> r.getVehicle()!=null && r.getVehicle().getId()==vehicle.getId()).findFirst();
+		if(reservationOptional.isPresent()) {
+			return reservationOptional.get();
+		}
+		return null;
+	}
+	
 }

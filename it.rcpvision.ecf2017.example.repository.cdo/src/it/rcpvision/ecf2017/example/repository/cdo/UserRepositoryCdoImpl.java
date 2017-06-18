@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.util.CommitException;
+import org.eclipse.emf.cdo.util.ConcurrentAccessException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -14,6 +15,7 @@ import org.osgi.service.component.annotations.Component;
 
 import it.rcpvision.ecf2017.example.model.carsharing.CarsharingFactory;
 import it.rcpvision.ecf2017.example.model.carsharing.User;
+import it.rcpvision.ecf2017.example.model.carsharing.Vehicle;
 import it.rcpvision.ecf2017.example.repository.api.IUserRepository;
 import it.rcpvision.ecf2017.example.repository.api.exception.RepositoryException;
 
@@ -31,6 +33,13 @@ public class UserRepositoryCdoImpl implements IUserRepository{
 			User firstUser = CarsharingFactory.eINSTANCE.createUser();
 			firstUser.setName("pippo");
 			resource.getContents().add(firstUser);
+			try {
+				transaction.commit();
+			} catch (ConcurrentAccessException e) {
+				e.printStackTrace();
+			} catch (CommitException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	 
@@ -74,6 +83,13 @@ public class UserRepositoryCdoImpl implements IUserRepository{
 		} catch (CommitException e) {
 			throw new RepositoryException(e); 
 		}
+	}
+	
+	private User checkForId(User user) {
+		if(user.getId().isEmpty()) {
+			user.setId(user.cdoID().toString());
+		}
+		return user;
 	}
 
 }

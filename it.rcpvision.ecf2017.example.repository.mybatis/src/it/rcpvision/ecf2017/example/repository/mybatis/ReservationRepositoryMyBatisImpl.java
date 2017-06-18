@@ -70,15 +70,15 @@ public class ReservationRepositoryMyBatisImpl implements IReservationRepository{
 
 	private it.rcpvision.ecf2017.example.repository.mybatis.model.Reservation createDbReservationFromReservation(Reservation reservation) {
 		it.rcpvision.ecf2017.example.repository.mybatis.model.Reservation dbReservation=new it.rcpvision.ecf2017.example.repository.mybatis.model.Reservation();
-		dbReservation.setPeople(reservation.getVehicle().getId());
-		dbReservation.setCar(reservation.getVehicle().getId());
+		dbReservation.setPeople(Short.parseShort(reservation.getUser().getId()));
+		dbReservation.setCar(Short.parseShort(reservation.getVehicle().getId()));
 		return dbReservation;
 	}
 
 
 	@Override
 	public Reservation getActiveByVehicle(Vehicle vehicle) {
-		List<it.rcpvision.ecf2017.example.repository.mybatis.model.Reservation> result = reservationMapper.selectByVehicle(vehicle.getId());
+		List<it.rcpvision.ecf2017.example.repository.mybatis.model.Reservation> result = reservationMapper.selectByVehicle(Short.parseShort(vehicle.getId()));
 		if(result.size()>0) {
 			return createReservationFromDbReservation(result.get(0));
 		}

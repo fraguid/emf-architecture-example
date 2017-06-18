@@ -44,7 +44,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final short ID_EDEFAULT = 0;
+	protected static final String ID_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -54,7 +54,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * @generated
 	 * @ordered
 	 */
-	protected short id = ID_EDEFAULT;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -130,7 +130,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public short getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -139,8 +139,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(short newId) {
-		short oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.USER__ID, oldId, id));
@@ -230,7 +230,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CarsharingPackage.USER__ID:
-				setId((Short)newValue);
+				setId((String)newValue);
 				return;
 			case CarsharingPackage.USER__NAME:
 				setName((String)newValue);
@@ -279,7 +279,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CarsharingPackage.USER__ID:
-				return id != ID_EDEFAULT;
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case CarsharingPackage.USER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CarsharingPackage.USER__SURNAME:

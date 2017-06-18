@@ -9,6 +9,7 @@ import it.rcpvision.ecf2017.example.ui.presenter.IVehiclePresenter;
 import it.rcpvision.ecf2017.example.ui.presenter.impl.VehiclePresenterImpl;
 import it.rcpvision.ecf2017.example.ui.vehicle.config.VehicleConfigurator;
 import it.rcpvision.ecf2017.example.ui.vehicle.ui.provider.VehicleFeaturesProvider;
+import it.rcpvision.ecf2017.example.ui.vehicle.ui.provider.VehicleLabelProvider;
 import it.rcpvision.ecf2017.example.ui.vehicle.ui.provider.VehicleTableFeaturesProvider;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.parsley.EmfParsleyGuiceModule;
@@ -20,6 +21,7 @@ import org.eclipse.emf.parsley.edit.ui.provider.TableViewerContentProvider;
 import org.eclipse.emf.parsley.ui.provider.FeaturesProvider;
 import org.eclipse.emf.parsley.ui.provider.TableColumnLabelProvider;
 import org.eclipse.emf.parsley.ui.provider.TableFeaturesProvider;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 @SuppressWarnings("all")
@@ -55,6 +57,11 @@ public class VehicleEmfParsleyGuiceModule extends EmfParsleyGuiceModule {
   @Override
   public Class<? extends ProposalCreator> bindProposalCreator() {
     return ReservationProposalCreator.class;
+  }
+  
+  @Override
+  public Class<? extends ILabelProvider> bindILabelProvider() {
+    return VehicleLabelProvider.class;
   }
   
   @Override

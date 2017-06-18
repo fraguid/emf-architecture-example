@@ -41,7 +41,7 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	 * @generated
 	 * @ordered
 	 */
-	protected static final short ID_EDEFAULT = 0;
+	protected static final String ID_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -51,7 +51,7 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	 * @generated
 	 * @ordered
 	 */
-	protected short id = ID_EDEFAULT;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getBrand() <em>Brand</em>}' attribute.
@@ -177,7 +177,7 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public short getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -186,8 +186,8 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(short newId) {
-		short oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CarsharingPackage.VEHICLE__ID, oldId, id));
@@ -331,7 +331,7 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CarsharingPackage.VEHICLE__ID:
-				setId((Short)newValue);
+				setId((String)newValue);
 				return;
 			case CarsharingPackage.VEHICLE__BRAND:
 				setBrand((String)newValue);
@@ -391,7 +391,7 @@ public class VehicleImpl extends MinimalEObjectImpl.Container implements Vehicle
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CarsharingPackage.VEHICLE__ID:
-				return id != ID_EDEFAULT;
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case CarsharingPackage.VEHICLE__BRAND:
 				return BRAND_EDEFAULT == null ? brand != null : !BRAND_EDEFAULT.equals(brand);
 			case CarsharingPackage.VEHICLE__MODEL:

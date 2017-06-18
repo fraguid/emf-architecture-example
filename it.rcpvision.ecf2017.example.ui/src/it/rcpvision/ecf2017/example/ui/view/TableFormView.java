@@ -73,6 +73,7 @@ public abstract class TableFormView<V extends IViewerPresenter> extends ViewPart
 		saveButton.setText("Save");
 		saveButton.addSelectionListener(uiUtil.createSelectionAdapter(()->{
 					presenter.saveButtonPressed();
+					getViewer().refresh(true);
 			}));
 	}
 

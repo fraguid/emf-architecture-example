@@ -154,4 +154,7 @@ public interface CarMapper {
         "where ID = #{id,jdbcType=DECIMAL}"
     })
     int updateByPrimaryKey(Car record);
+    
+    @Select({"SELECT USER1.CAR_SEQ.currval FROM DUAL"})
+	Long getLastId();
 }

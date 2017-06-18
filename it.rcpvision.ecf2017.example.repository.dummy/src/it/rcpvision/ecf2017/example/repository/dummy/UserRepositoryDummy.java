@@ -72,8 +72,8 @@ public class UserRepositoryDummy implements IUserRepository{
 	}
 	
 	private void checkForId(User user) {
-		if(user.getId()==0) {
-			user.setId(counter++);
+		if(user.getId()==null) {
+			user.setId(Integer.toString(counter++));
 		}
 	}
 

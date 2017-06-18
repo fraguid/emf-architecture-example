@@ -20,6 +20,12 @@ module it.rcpvision.ecf2017.example.ui.user {
 		}
 	}
 	
+	labelProvider{
+		text{
+			User -> name +" "+surname
+		}
+	}
+	
 	bindings{
 		type IUserPresenter -> UserPresenterImpl
 		type IEditingStrategy -> ListUndoableEditingStrategy

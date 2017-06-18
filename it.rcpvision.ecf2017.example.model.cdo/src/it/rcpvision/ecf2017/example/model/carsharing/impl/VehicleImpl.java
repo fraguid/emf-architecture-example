@@ -64,8 +64,8 @@ public class VehicleImpl extends CDOObjectImpl implements Vehicle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public short getId() {
-		return (Short)eGet(CarsharingPackage.Literals.VEHICLE__ID, true);
+	public String getId() {
+		return (String)eGet(CarsharingPackage.Literals.VEHICLE__ID, true);
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class VehicleImpl extends CDOObjectImpl implements Vehicle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(short newId) {
+	public void setId(String newId) {
 		eSet(CarsharingPackage.Literals.VEHICLE__ID, newId);
 	}
 

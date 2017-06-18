@@ -73,7 +73,7 @@ public class VehicleTableFormView extends TableFormView<IVehiclePresenter> {
 					int ret = dialog.open();
 					if(ret==Dialog.OK) {
 						presenter.reservationButtonPressed(reservation);
-//						getViewer().setInput(presenter.getViewerInput());
+						getViewer().setInput(presenter.getViewerInput());
 					}
 			}));
 	} 

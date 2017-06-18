@@ -36,12 +36,12 @@ public interface Vehicle extends CDOObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(short)
+	 * @see #setId(String)
 	 * @see it.rcpvision.ecf2017.example.model.carsharing.CarsharingPackage#getVehicle_Id()
 	 * @model
 	 * @generated
 	 */
-	short getId();
+	String getId();
 
 	/**
 	 * Sets the value of the '{@link it.rcpvision.ecf2017.example.model.carsharing.Vehicle#getId <em>Id</em>}' attribute.
@@ -51,7 +51,7 @@ public interface Vehicle extends CDOObject {
 	 * @see #getId()
 	 * @generated
 	 */
-	void setId(short value);
+	void setId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Brand</b></em>' attribute.

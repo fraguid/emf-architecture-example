@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
+import org.eclipse.emf.cdo.util.CommitException;
+import org.eclipse.emf.cdo.util.ConcurrentAccessException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
@@ -25,12 +27,21 @@ public class VehicleRepositoryCdoImpl implements IVehicleRepository{
 	private CDOTransaction transaction;
 	
 	public VehicleRepositoryCdoImpl() {
-		Vehicle firstVehicle = CarsharingFactory.eINSTANCE.createVehicle();
-		firstVehicle.setBrand("TOYOTA");
-		firstVehicle.setModel("YARIS");
 		transaction= CDORepositoryActivator.getSingleton().openTransaction();
 		resource =transaction.getOrCreateResource(VEHICLE_RESOURCE_NAME);
-		resource.getContents().add(firstVehicle);
+		if(resource.getContents().isEmpty()) {
+			Vehicle firstVehicle = CarsharingFactory.eINSTANCE.createVehicle();
+			firstVehicle.setBrand("TOYOTA");
+			firstVehicle.setModel("YARIS");
+			resource.getContents().add(firstVehicle);
+			try {
+				transaction.commit();
+			} catch (ConcurrentAccessException e) {
+				e.printStackTrace();
+			} catch (CommitException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	 
 	 

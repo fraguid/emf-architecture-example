@@ -63,8 +63,8 @@ public class UserImpl extends CDOObjectImpl implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public short getId() {
-		return (Short)eGet(CarsharingPackage.Literals.USER__ID, true);
+	public String getId() {
+		return (String)eGet(CarsharingPackage.Literals.USER__ID, true);
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(short newId) {
+	public void setId(String newId) {
 		eSet(CarsharingPackage.Literals.USER__ID, newId);
 	}
 

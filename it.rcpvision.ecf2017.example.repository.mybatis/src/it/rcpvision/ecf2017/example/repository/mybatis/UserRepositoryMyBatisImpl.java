@@ -34,19 +34,21 @@ public class UserRepositoryMyBatisImpl implements IUserRepository{
 
 	@Override
 	public void insert(User user)  throws RepositoryException {
-		People record= createDbPeapleFromUser(user);
+		People record= createDbPeopleFromUser(user);
 		peopleMapper.insert(record);
+		user.setId(Long.toString(peopleMapper.getLastId()));
+		checkForResource(user);
 	}
 
 	@Override
 	public void update(User user) throws RepositoryException {
-		People record= createDbPeapleFromUser(user);
+		People record= createDbPeopleFromUser(user);
 		peopleMapper.updateByPrimaryKey(record);
 	}
 
 	@Override
 	public void delete(User user) throws RepositoryException {
-		peopleMapper.deleteByPrimaryKey(user.getId());
+		peopleMapper.deleteByPrimaryKey(Short.parseShort(user.getId()));
 	}
 
 	@Override
@@ -76,13 +78,15 @@ public class UserRepositoryMyBatisImpl implements IUserRepository{
 		User user= CarsharingFactory.eINSTANCE.createUser();
 		user.setName(dbPeople.getName());
 		user.setSurname(dbPeople.getSurname());
-		user.setId(dbPeople.getId());
+		user.setId(Integer.toString(dbPeople.getId()));
 		return user;
 	}
 
-	private People createDbPeapleFromUser(User user) {
+	private People createDbPeopleFromUser(User user) {
 		People people=new People();
-		people.setId(user.getId());
+		if(user.getId()!=null) {
+			people.setId(Short.parseShort(user.getId()));
+		}
 		people.setName(user.getName());
 		people.setSurname(user.getSurname());
 		return people;

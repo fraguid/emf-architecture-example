@@ -83,8 +83,8 @@ public class VehicleRepositoryDummy implements IVehicleRepository{
 
 
 	private void checkForId(Vehicle vehicle) {
-		if(vehicle.getId()==0) {
-			vehicle.setId(counter++);
+		if(vehicle.getId()==null) {
+			vehicle.setId(Integer.toString(counter++));
 		}
 	}
 }
