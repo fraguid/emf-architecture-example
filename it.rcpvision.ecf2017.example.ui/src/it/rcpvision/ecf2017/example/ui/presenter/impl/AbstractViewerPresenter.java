@@ -43,7 +43,6 @@ public abstract class AbstractViewerPresenter<T extends EObject, S extends IView
 	@Override
 	public T newButtonPressed() {
 		T newObj=service.createNewObject();
-		editingStrategy.prepare(newObj);
 		list.add(newObj);
 		return newObj;
 	}
@@ -53,15 +52,22 @@ public abstract class AbstractViewerPresenter<T extends EObject, S extends IView
 		list.forEach(obj->{
 			if(!emfUtil.isNewObject(obj)) {
 				editingStrategy.update(obj);
+				save(obj);
+			}else {
+				save(obj);
+				editingStrategy.prepare(obj);
 			}
 		});
 		list.forEach(arg0 -> {
-			try {
-				service.save(arg0);
-			} catch (RepositoryException e) {
-				MessageDialog.openError(Display.getCurrent().getActiveShell(), "Save Error", e.getMessage());
-			}
 		});
+	}
+
+	private void save(T arg0) {
+		try {
+			service.save(arg0);
+		} catch (RepositoryException e) {
+			MessageDialog.openError(Display.getCurrent().getActiveShell(), "Save Error", e.getMessage());
+		}
 	}
 
 	@Override

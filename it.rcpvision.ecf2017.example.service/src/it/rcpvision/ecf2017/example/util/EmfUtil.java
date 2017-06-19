@@ -14,6 +14,9 @@ public class EmfUtil {
 	public boolean isDirty(Object element) {
 		if (element instanceof EObject) {
 			EObject eObject = (EObject) element;
+			if(isNewObject(eObject)) {
+				return true;
+			}
 			EList<Adapter> eAdapters = eObject.eAdapters();
 			Optional<Adapter> optional = eAdapters.stream().filter(adapter -> adapter instanceof NotificationBuffer)
 					.findFirst();

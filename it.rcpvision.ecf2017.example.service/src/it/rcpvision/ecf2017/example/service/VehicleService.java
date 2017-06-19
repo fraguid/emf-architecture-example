@@ -3,11 +3,9 @@ package it.rcpvision.ecf2017.example.service;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import com.google.inject.Inject;
 
-import it.rcpvision.ecf2017.example.ServiceActivator;
 import it.rcpvision.ecf2017.example.model.carsharing.CarsharingFactory;
 import it.rcpvision.ecf2017.example.model.carsharing.Reservation;
 import it.rcpvision.ecf2017.example.model.carsharing.ReservationState;
@@ -60,7 +58,6 @@ public class VehicleService implements IViewerService<Vehicle> {
 			}
 		}
 		return ret;
-//		return (Collection) getAll().stream().filter(v->((Vehicle)v).getReservationState().equals(ReservationState.FREE)).collect(Collectors.toList());
 	}
 
 }
