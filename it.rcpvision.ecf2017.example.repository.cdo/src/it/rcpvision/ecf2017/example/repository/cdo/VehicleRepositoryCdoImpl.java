@@ -8,15 +8,20 @@ import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.cdo.util.ConcurrentAccessException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.osgi.service.component.annotations.Component;
 
 import it.rcpvision.ecf2017.example.model.carsharing.CarsharingFactory;
+import it.rcpvision.ecf2017.example.model.carsharing.Reservation;
+import it.rcpvision.ecf2017.example.model.carsharing.ReservationState;
 import it.rcpvision.ecf2017.example.model.carsharing.User;
 import it.rcpvision.ecf2017.example.model.carsharing.Vehicle;
+import it.rcpvision.ecf2017.example.repository.api.IReservationRepository;
 import it.rcpvision.ecf2017.example.repository.api.IVehicleRepository;
+import it.rcpvision.ecf2017.example.repository.api.RepositoryApiActivator;
 import it.rcpvision.ecf2017.example.repository.api.exception.RepositoryException;
 
 @Component
@@ -25,6 +30,8 @@ public class VehicleRepositoryCdoImpl implements IVehicleRepository{
 	private static final String VEHICLE_RESOURCE_NAME = "VEHICLE";
 	private CDOResource resource;
 	private CDOTransaction transaction;
+	
+	IReservationRepository reservationRepository= RepositoryApiActivator.getSingleton().getReservationRepository();
 	
 	public VehicleRepositoryCdoImpl() {
 		transaction= CDORepositoryActivator.getSingleton().openTransaction();
@@ -49,15 +56,19 @@ public class VehicleRepositoryCdoImpl implements IVehicleRepository{
 	@Override
 	public void insert(Vehicle obj)  throws RepositoryException {
 		resource.getContents().add(obj);
+		commit();
+		checkForId(obj);
 	}
 
 	@Override
 	public void update(Vehicle obj) throws RepositoryException {
+		commit();
 	}
 
 	@Override
 	public void delete(Vehicle obj) throws RepositoryException {
 		resource.getContents().remove(obj);
+		commit();
 	}
 
 	@Override
@@ -72,7 +83,36 @@ public class VehicleRepositoryCdoImpl implements IVehicleRepository{
 
 	@Override
 	public List queryAll() {
+		return prepare(resource.getContents());
+	}
+	
+	private void commit() throws RepositoryException {
+		try {
+			transaction.commit();
+		} catch (CommitException e) {
+			throw new RepositoryException(e); 
+		}
+	}
+	
+	private List prepare(EList<EObject> contents) {
+		resource.getContents().stream().map(Vehicle.class::cast).forEach(v->prepareObject(v));
 		return resource.getContents();
+	}
+
+	private Vehicle prepareObject(Vehicle vehicle) {
+		checkForId(vehicle);
+		Reservation reservation= reservationRepository.getActiveByVehicle(vehicle);
+		if(reservation!=null) {
+			vehicle.setReservationState(ReservationState.RESERVED);
+		}
+		return vehicle;
+	}
+
+
+	private void checkForId(Vehicle vehicle) {
+		if(vehicle.getId()==null) {
+			vehicle.setId(vehicle.cdoID().toString());
+		}
 	}
 
 }

@@ -7,6 +7,7 @@ import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.cdo.util.ConcurrentAccessException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -48,6 +49,7 @@ public class UserRepositoryCdoImpl implements IUserRepository{
 	public void insert(User obj)  throws RepositoryException {
 		resource.getContents().add(obj);
 		commit();
+		checkForId(obj);
 	}
 
 
@@ -74,7 +76,7 @@ public class UserRepositoryCdoImpl implements IUserRepository{
 
 	@Override
 	public List queryAll() {
-		return resource.getContents();
+		return prepare(resource.getContents());
 	}
 	
 	private void commit() throws RepositoryException {
@@ -85,8 +87,18 @@ public class UserRepositoryCdoImpl implements IUserRepository{
 		}
 	}
 	
+	private List prepare(EList<EObject> contents) {
+		resource.getContents().stream().map(User.class::cast).forEach(u->prepareObject(u));
+		return resource.getContents();
+	}
+
+	private User prepareObject(User user) {
+		checkForId(user);
+		return user;
+	}
+	
 	private User checkForId(User user) {
-		if(user.getId().isEmpty()) {
+		if(user.getId()==null) {
 			user.setId(user.cdoID().toString());
 		}
 		return user;
