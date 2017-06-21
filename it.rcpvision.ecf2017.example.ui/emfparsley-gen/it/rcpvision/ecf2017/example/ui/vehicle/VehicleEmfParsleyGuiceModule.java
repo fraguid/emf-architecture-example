@@ -2,7 +2,6 @@ package it.rcpvision.ecf2017.example.ui.vehicle;
 
 import com.google.inject.Provider;
 import it.rcpvision.ecf2017.example.ui.custom.ArrayTableViewerContentProvider;
-import it.rcpvision.ecf2017.example.ui.custom.DirtyRowsTableLabelProvider;
 import it.rcpvision.ecf2017.example.ui.custom.ListUndoableEditingStrategy;
 import it.rcpvision.ecf2017.example.ui.custom.ReservationProposalCreator;
 import it.rcpvision.ecf2017.example.ui.presenter.IVehiclePresenter;
@@ -11,6 +10,7 @@ import it.rcpvision.ecf2017.example.ui.vehicle.config.VehicleConfigurator;
 import it.rcpvision.ecf2017.example.ui.vehicle.ui.provider.VehicleFeaturesProvider;
 import it.rcpvision.ecf2017.example.ui.vehicle.ui.provider.VehicleLabelProvider;
 import it.rcpvision.ecf2017.example.ui.vehicle.ui.provider.VehicleTableFeaturesProvider;
+import it.rcpvision.ecf2017.example.ui.vehicle.ui.provider.VehicleTableLabelProvider;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.parsley.EmfParsleyGuiceModule;
 import org.eclipse.emf.parsley.composite.ProposalCreator;
@@ -40,11 +40,6 @@ public class VehicleEmfParsleyGuiceModule extends EmfParsleyGuiceModule {
   }
   
   @Override
-  public Class<? extends TableColumnLabelProvider> bindTableColumnLabelProvider() {
-    return DirtyRowsTableLabelProvider.class;
-  }
-  
-  @Override
   public Class<? extends TableViewerContentProvider> bindTableViewerContentProvider() {
     return ArrayTableViewerContentProvider.class;
   }
@@ -62,6 +57,11 @@ public class VehicleEmfParsleyGuiceModule extends EmfParsleyGuiceModule {
   @Override
   public Class<? extends ILabelProvider> bindILabelProvider() {
     return VehicleLabelProvider.class;
+  }
+  
+  @Override
+  public Class<? extends TableColumnLabelProvider> bindTableColumnLabelProvider() {
+    return VehicleTableLabelProvider.class;
   }
   
   @Override

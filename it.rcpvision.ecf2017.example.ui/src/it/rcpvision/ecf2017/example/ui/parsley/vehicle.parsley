@@ -15,6 +15,8 @@ import org.eclipse.emf.parsley.edit.domain.GlobalAdapterFactoryEditingDomainProv
 import org.eclipse.emf.parsley.edit.ui.provider.TableViewerContentProvider
 import org.eclipse.emf.parsley.ui.provider.TableColumnLabelProvider
 import org.eclipse.emf.parsley.views.SaveableTableFormView
+import it.rcpvision.ecf2017.example.model.carsharing.ReservationState
+import it.rcpvision.ecf2017.example.model.carsharing.CarType
 
 module it.rcpvision.ecf2017.example.ui.vehicle {
 	
@@ -36,13 +38,32 @@ module it.rcpvision.ecf2017.example.ui.vehicle {
 			User -> name +" "+surname
 			Vehicle -> brand + " "+model +" ("+plate+")"
 		}
+		image{
+			User -> "person.png"
+			Vehicle -> {
+				if(it.^type.equals(CarType.VAN)){
+					return "van.png"
+				}
+				return "car.png"
+			}
+		}
+	}
+	
+	tableLabelProvider extends DirtyRowsTableLabelProvider{
+		image{
+			Vehicle : reservationState -> {
+				if(!it.reservationState.equals(ReservationState.FREE)){
+					return "reservation.png"
+				}
+				return "shop.png"
+			}
+		}
 	}
 	
 
 	bindings{
 		type IVehiclePresenter -> VehiclePresenterImpl
 		type IEditingStrategy -> ListUndoableEditingStrategy
-		type TableColumnLabelProvider -> DirtyRowsTableLabelProvider
 		type TableViewerContentProvider -> ArrayTableViewerContentProvider
 		provide AdapterFactoryEditingDomain -> GlobalAdapterFactoryEditingDomainProvider
 		type ProposalCreator -> ReservationProposalCreator

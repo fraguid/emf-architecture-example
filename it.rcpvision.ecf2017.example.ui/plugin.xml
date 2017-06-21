@@ -6,6 +6,7 @@
       <view
             category="org.eclipse.emf.parsley"
             class="it.rcpvision.ecf2017.example.ui.user.UserExecutableExtensionFactory:it.rcpvision.ecf2017.example.ui.view.UserTableFormView"
+            icon="icons/people.png"
             id="it.rcpvision.ecf2017.example.ui.view.user"
             name="User View"
             restorable="true">
@@ -13,6 +14,7 @@
       <view
             category="org.eclipse.emf.parsley"
             class="it.rcpvision.ecf2017.example.ui.vehicle.VehicleExecutableExtensionFactory:it.rcpvision.ecf2017.example.ui.view.VehicleTableFormView"
+            icon="icons/car.png"
             id="it.rcpvision.ecf2017.example.ui.view.vehicle"
             name="Vehicle View"
             restorable="true">

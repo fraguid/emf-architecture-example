@@ -1,6 +1,7 @@
 package it.rcpvision.ecf2017.example.ui.vehicle.ui.provider;
 
 import com.google.inject.Inject;
+import it.rcpvision.ecf2017.example.model.carsharing.CarType;
 import it.rcpvision.ecf2017.example.model.carsharing.User;
 import it.rcpvision.ecf2017.example.model.carsharing.Vehicle;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
@@ -31,5 +32,17 @@ public class VehicleLabelProvider extends ViewerLabelProvider {
     String _plus_3 = (_plus_2 + _plate);
     String _plus_4 = (_plus_3 + ")");
     return _plus_4;
+  }
+  
+  public Object image(final User it) {
+    return "person.png";
+  }
+  
+  public Object image(final Vehicle it) {
+    boolean _equals = it.getType().equals(CarType.VAN);
+    if (_equals) {
+      return "van.png";
+    }
+    return "car.png";
   }
 }

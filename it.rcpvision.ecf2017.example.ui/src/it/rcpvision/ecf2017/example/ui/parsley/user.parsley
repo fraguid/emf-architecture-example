@@ -24,6 +24,9 @@ module it.rcpvision.ecf2017.example.ui.user {
 		text{
 			User -> name +" "+surname
 		}
+		image{
+			User -> "person.png"
+		}
 	}
 	
 	bindings{

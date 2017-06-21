@@ -19,4 +19,8 @@ public class UserLabelProvider extends ViewerLabelProvider {
     String _plus_1 = (_plus + _surname);
     return _plus_1;
   }
+  
+  public Object image(final User it) {
+    return "person.png";
+  }
 }
