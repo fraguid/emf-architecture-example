@@ -13,7 +13,7 @@
 <booleanAttribute key="default" value="true"/>
 <booleanAttribute key="default_auto_start" value="true"/>
 <intAttribute key="default_start_level" value="4"/>
-<stringAttribute key="deselected_workspace_plugins" value="it.rcpvision.emf.architecture.example.model.cdo,it.rcpvision.emf.architecture.example.repository.cdo,it.rcpvision.emf.architecture.example.repository.dummy"/>
+<stringAttribute key="deselected_workspace_plugins" value="it.rcpvision.emf.architecture.example.repository.cdo,it.rcpvision.emf.architecture.example.repository.dummy,it.rcpvision.emf.architecture.model.cdo,org.eclipse.emf.parsley.examples.rap.targetplatform"/>
 <booleanAttribute key="includeOptional" value="true"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
@@ -28,7 +28,7 @@
 <stringAttribute key="org.eclipse.rap.launch.contextpath" value=""/>
 <stringAttribute key="org.eclipse.rap.launch.dataLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.rap.tools.launch/RAPApplication(MyBatis)"/>
 <booleanAttribute key="org.eclipse.rap.launch.developmentMode" value="false"/>
-<booleanAttribute key="org.eclipse.rap.launch.openBrowser" value="true"/>
+<booleanAttribute key="org.eclipse.rap.launch.openBrowser" value="false"/>
 <intAttribute key="org.eclipse.rap.launch.port" value="10000"/>
 <stringAttribute key="org.eclipse.rap.launch.servletPath" value="/rap"/>
 <intAttribute key="org.eclipse.rap.launch.sessionTimeout" value="0"/>
@@ -42,5 +42,5 @@
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="it.rcpvision.emf.architecture.example.app.rap@default:default,it.rcpvision.emf.architecture.example.model.ecore@default:default,it.rcpvision.emf.architecture.example.model.xmi@default:default,it.rcpvision.emf.architecture.example.repository.api@default:default,it.rcpvision.emf.architecture.example.repository.mybatis@3:true,it.rcpvision.emf.architecture.example.service@default:default,it.rcpvision.emf.architecture.example.ui@default:default,org.eclipse.emf.parsley.examples.rap.targetplatform@default:default"/>
+<stringAttribute key="workspace_bundles" value="it.rcpvision.emf.architecture.example.app.rap@default:default,it.rcpvision.emf.architecture.example.model.ecore@default:default,it.rcpvision.emf.architecture.example.model.xmi@default:default,it.rcpvision.emf.architecture.example.repository.api@default:default,it.rcpvision.emf.architecture.example.repository.mybatis@3:true,it.rcpvision.emf.architecture.example.service@default:default,it.rcpvision.emf.architecture.example.ui@default:default"/>
 </launchConfiguration>
