@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="it.rcpvision.emf.architecture.example.repository.cdo.ReservationRepositoryCdoImpl">
+   <service>
+      <provide interface="it.rcpvision.emf.architecture.example.repository.api.IReservationRepository"/>
+   </service>
+   <implementation class="it.rcpvision.emf.architecture.example.repository.cdo.ReservationRepositoryCdoImpl"/>
+</scr:component>

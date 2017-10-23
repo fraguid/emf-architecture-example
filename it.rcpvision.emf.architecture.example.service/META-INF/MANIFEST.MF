@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Service
+Bundle-SymbolicName: it.rcpvision.emf.architecture.example.service
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: it.rcpvision.emf.architecture.example.service,
+ it.rcpvision.emf.architecture.example.util
+Bundle-Activator: it.rcpvision.emf.architecture.example.ServiceActivator
+Require-Bundle: org.eclipse.osgi,
+ it.rcpvision.emf.architecture.example.repository.api,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.parsley.common
+Import-Package: com.google.inject;version="1.3.0",
+ it.rcpvision.emf.architecture.example.model.carsharing,
+ org.eclipse.emf.cdo;version="4.5.0";resolution:=optional
+Bundle-ActivationPolicy: lazy

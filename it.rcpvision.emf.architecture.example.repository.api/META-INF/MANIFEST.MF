@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Api
+Bundle-SymbolicName: it.rcpvision.emf.architecture.example.repository.api
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.osgi
+Import-Package: it.rcpvision.emf.architecture.example.model.carsharing,
+ org.eclipse.emf.cdo;version="4.5.0";resolution:=optional
+Export-Package: it.rcpvision.emf.architecture.example.repository.api,
+ it.rcpvision.emf.architecture.example.repository.api.exception
+Bundle-Activator: it.rcpvision.emf.architecture.example.repository.api.RepositoryApiActivator
+Bundle-ActivationPolicy: lazy

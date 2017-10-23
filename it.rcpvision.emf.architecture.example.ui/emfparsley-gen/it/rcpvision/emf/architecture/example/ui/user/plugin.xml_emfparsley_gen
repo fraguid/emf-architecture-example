@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.eclipse.emf.parsley"
+            class="it.rcpvision.emf.architecture.example.ui.user.UserExecutableExtensionFactory:it.rcpvision.emf.architecture.example.ui.view.UserTableFormView"
+            id="it.rcpvision.emf.architecture.example.ui.view.user"
+            name="User View"
+            restorable="true">
+      </view>
+   </extension>
+</plugin>

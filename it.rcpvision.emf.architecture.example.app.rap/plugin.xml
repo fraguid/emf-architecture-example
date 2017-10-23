@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+	<extension
+         id="viewapp.entrypoints"
+         point="org.eclipse.rap.ui.entrypoint">
+      <entrypoint
+            path="/rap"
+            applicationId="it.rcpvision.emf.architecture.example.app.rap.viewapp"
+            id="viewapp.entrypoint">
+      </entrypoint>
+   </extension>
+   <extension
+         id="viewapp"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            thread="main"
+            cardinality="singleton-global"
+            visible="true">
+         <run
+               class="it.rcpvision.emf.architecture.example.app.rap.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="it.rcpvision.emf.architecture.example.app.rap.Perspective"
+            id="it.rcpvision.ece2017.example.perspective"
+            name="Perspective">
+      </perspective>
+   	</extension>
+    <extension
+            point="org.eclipse.rap.ui.themes">
+         <themeContribution
+               file="css/emf-architecture-example.css"
+               themeId="org.eclipse.rap.rwt.theme.Default">
+         </themeContribution>
+      </extension>
+  
+</plugin>

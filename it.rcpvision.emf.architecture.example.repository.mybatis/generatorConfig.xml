@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <classPathEntry location="D:\Projects\enav-dev3\git\maior-enav\plugins\it.rcpvision.maior.enav.third-party\lib\ojdbc6.jar" />
+  <context id="context1">
+    <jdbcConnection connectionURL="jdbc:oracle:thin:@localhost:1521:xe" driverClass="oracle.jdbc.driver.OracleDriver" password="test" userId="user1" />
+    <javaModelGenerator targetPackage="it.rcpvision.emf.architecture.example.repository.mybatis.model" targetProject="it.rcpvision.emf.architecture.example.repository.mybatis" />
+    <sqlMapGenerator targetPackage="sqlmap" targetProject="it.rcpvision.emf.architecture.example.repository.mybatis" />
+    <javaClientGenerator targetPackage="it.rcpvision.emf.architecture.example.repository.mybatis.mapper" targetProject="it.rcpvision.emf.architecture.example.repository.mybatis" type="ANNOTATEDMAPPER" />
+    <table schema="user1" tableName="PEOPLE">
+    </table>
+    <table schema="user1" tableName="CAR">
+    </table>
+    <table schema="user1" tableName="RESERVATION">
+    </table>
+  </context>
+</generatorConfiguration>

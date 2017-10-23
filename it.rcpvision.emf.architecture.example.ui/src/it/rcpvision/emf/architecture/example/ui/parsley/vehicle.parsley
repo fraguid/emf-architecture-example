@@ -1,0 +1,84 @@
+import it.rcpvision.emf.architecture.example.model.carsharing.CarsharingPackage
+import it.rcpvision.emf.architecture.example.model.carsharing.User
+import it.rcpvision.emf.architecture.example.model.carsharing.Vehicle
+import it.rcpvision.emf.architecture.example.ui.custom.ArrayTableViewerContentProvider
+import it.rcpvision.emf.architecture.example.ui.custom.DirtyRowsTableLabelProvider
+import it.rcpvision.emf.architecture.example.ui.custom.ListUndoableEditingStrategy
+import it.rcpvision.emf.architecture.example.ui.custom.ReservationProposalCreator
+import it.rcpvision.emf.architecture.example.ui.presenter.IVehiclePresenter
+import it.rcpvision.emf.architecture.example.ui.presenter.impl.VehiclePresenterImpl
+import it.rcpvision.emf.architecture.example.ui.view.VehicleTableFormView
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain
+import org.eclipse.emf.parsley.composite.ProposalCreator
+import org.eclipse.emf.parsley.edit.IEditingStrategy
+import org.eclipse.emf.parsley.edit.domain.GlobalAdapterFactoryEditingDomainProvider
+import org.eclipse.emf.parsley.edit.ui.provider.TableViewerContentProvider
+import org.eclipse.emf.parsley.ui.provider.TableColumnLabelProvider
+import org.eclipse.emf.parsley.views.SaveableTableFormView
+import it.rcpvision.emf.architecture.example.model.carsharing.ReservationState
+import it.rcpvision.emf.architecture.example.model.carsharing.CarType
+
+module it.rcpvision.emf.architecture.example.ui.vehicle {
+	
+	parts{
+		viewpart it.rcpvision.emf.architecture.example.ui.view.vehicle {
+			viewname "Vehicle View"
+			viewclass VehicleTableFormView
+		}
+	}
+	
+	configurator{
+		eClass {
+			SaveableTableFormView -> CarsharingPackage.Literals.VEHICLE
+		}
+	}
+	
+	labelProvider{
+		text{
+			User -> name +" "+surname
+			Vehicle -> brand + " "+model +" ("+plate+")"
+		}
+		image{
+			User -> "person.png"
+			Vehicle -> {
+				if(it.^type.equals(CarType.VAN)){
+					return "van.png"
+				}
+				return "car.png"
+			}
+		}
+	}
+	
+	tableLabelProvider extends DirtyRowsTableLabelProvider{
+		image{
+			Vehicle : reservationState -> {
+				if(!it.reservationState.equals(ReservationState.FREE)){
+					return "reservation.png"
+				}
+				return "shop.png"
+			}
+		}
+	}
+	
+
+	bindings{
+		type IVehiclePresenter -> VehiclePresenterImpl
+		type IEditingStrategy -> ListUndoableEditingStrategy
+		type TableViewerContentProvider -> ArrayTableViewerContentProvider
+		provide AdapterFactoryEditingDomain -> GlobalAdapterFactoryEditingDomainProvider
+		type ProposalCreator -> ReservationProposalCreator
+	}
+	
+	tableFeaturesProvider{
+		features{
+			Vehicle -> id, brand, model, ^type, plate ,reservationState
+		}
+	}
+	
+	featuresProvider{
+		features{
+			Vehicle -> brand, model, ^type, plate
+		}
+	}
+	
+}
