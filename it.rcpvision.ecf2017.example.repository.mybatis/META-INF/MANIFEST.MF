@@ -16,7 +16,8 @@ Require-Bundle: org.eclipse.osgi,
  it.rcpvision.ecf2017.example.ui;bundle-version="1.0.0",
  com.google.inject,
  org.eclipse.emf.parsley.common,
- org.eclipse.rap.ui;bundle-version="3.1.2";resolution:=optional
+ org.eclipse.rap.ui;bundle-version="3.1.2";resolution:=optional,
+ org.eclipse.osgi.services
 Bundle-ClassPath: .,
  lib/mybatis-3.3.0.jar,
  lib/ojdbc6.jar
