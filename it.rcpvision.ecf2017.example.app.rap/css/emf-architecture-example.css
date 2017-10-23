@@ -1,0 +1,294 @@
+
+* {
+  color: #4a4a4a;
+  background-color: white;
+  background-image: none;
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+}
+
+Text {
+  border: none;
+  padding: 2px 3px;
+  color: #464a4e;
+  background-color: #fcfcfc;
+  background-image: none;
+  background-repeat: repeat;
+  background-position: left top;
+  text-shadow: none;
+  box-shadow: none;
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+}
+
+Text[BORDER] {
+  border: 1px solid #a4a4a4;
+  border-radius: 2px 2px 2px 2px;
+  box-shadow: none;
+  background-image: gradient(
+    linear, left top, left bottom,
+    from( #e2e2e2 ),
+    color-stop( 15%, #f8f8f8 ),
+    to( #fbfbfb )
+  );
+}
+
+Text[BORDER]:focused,
+TEXT[MULTI][BORDER]:focused {
+  box-shadow: none;
+  border: 1px solid #a4a4a4;
+}
+
+Text[SINGLE] {
+  /* padding: 2px 3px; */
+}
+
+Text[MULTI] {
+  /* padding: 0px 0px 0px 3px; */
+  background-image: none;
+}
+
+Text[MULTI][BORDER] {
+  /* padding: 0px 0px 0px 4px; */
+  box-shadow: none;
+}
+
+Text[BORDER]:focused,
+Text[MULTI]:focused,
+Text[MULTI][BORDER]:focused {
+ border: 1px solid #a4a4a4;
+  box-shadow: none;
+}
+
+Text-Message {
+  color: #a7a6aa;
+  text-shadow: none;
+  height:20px
+}
+
+Combo {
+  border: 1px solid #c1c1c1;
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+  background-color: #fcfcfc;
+  color: #464a4e;
+  border-radius: 2px;
+  background-image: gradient(
+    linear, left top, left bottom,
+    from( #e2e2e2 ),
+    color-stop( 15%, #f8f8f8 ),
+    to( #fbfbfb )
+  );
+  text-shadow: none;
+  box-shadow: none;
+}
+
+Combo-Field {
+  height: 9px;
+}
+
+Combo-Button {
+    width: 20px;	
+}
+
+DateTime {
+  color: #464a4e;
+  background-color: #fcfcfc;
+  border: none;
+  padding: 1px 2px;
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+  background-image: none;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+DateTime-DropDownCalendar {
+	font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+	background-image: none;
+	background-color: white;
+	border: 1px solid #00569C;
+}
+
+DateTime-Calendar-Navbar {
+  border: 1px solid #00569C;
+  border-radius: 0;
+  background-color: #00569c;
+  color: white;
+  font: bold 8px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+  text-shadow: none;
+  background-image: none;
+}
+
+DateTime-DropDownButton{
+	width: 20px;
+}
+
+ToolTip-Text {
+  color: #003399;
+  font: bold 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+  text-shadow: none;
+}
+
+Label {
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+  color: #4a4a4a;
+  background-color: white;
+  background-image: none;
+  background-repeat: repeat;
+  background-position: left top;
+  border: none;
+  text-decoration: none;
+  cursor: default;
+  opacity: 1;
+  text-shadow: none;
+}
+
+Table {
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+  background-color: white;
+  background-image: none;
+  color: #4a4a4a;
+  border: none;
+}
+
+Tree {
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+  background-color: white;
+  background-image: none;
+  color: #4a4a4a;
+  border: none;
+}
+
+TableColumn {
+  background-color: #f8f8ff;
+  padding: 1px 2px;
+  background-image: gradient(
+    linear, left top, left bottom,
+    from( #fbfcfd ),
+    to( #ececec )
+  );
+  color: #666666;
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+  border-bottom:none;
+  text-shadow: none;
+  text-overflow: clip;
+}
+
+TreeColumn {
+  background-color: #f8f8ff;
+  padding: 1px 2px;
+  background-image: gradient(
+    linear, left top, left bottom,
+    from( #fbfcfd ),
+    to( #ececec )
+  );
+  color: #666666;
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+  border-bottom:none;
+  text-shadow: none;
+  text-overflow: clip;
+}
+
+TableItem {
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
+  text-shadow: none;
+  background-image: none;
+  text-overflow: clip;
+}
+
+TableItem:linesvisible:even {
+  background-color: #f3f3f4;
+}
+
+Table-RowOverlay {
+  background-color: transparent;
+  color: inherit;
+  background-image: none;
+}
+
+Table-RowOverlay:hover {
+  background-color: #dae9f7;
+}
+
+/*
+Table-RowOverlay:selected {
+  color: white;
+  background-color: #aedbff;
+  background-image: gradient(
+    linear, left top, left bottom,
+    from( #aedbff ),
+    to( #00589f )
+  );
+}
+
+Table-RowOverlay:selected:unfocused {
+  background-color: #aedbff;
+  color: #ffffff;
+  background-image: gradient(
+    linear, left top, left bottom,
+    from( #aedbff ),
+    to( #00589f )
+  );
+}
+
+Table-RowOverlay:linesvisible:even:hover {
+  background-color: #dae9f7;
+}
+
+Table-RowOverlay:linesvisible:even:selected {
+  background-color: #aedbff;
+  color: white;
+  background-image: gradient(
+    linear, left top, left bottom,
+    from( #aedbff ),
+    to( #00589f )
+  );
+}
+
+Table-RowOverlay:linesvisible:even:selected:unfocused {
+  background-color: #aedbff;
+  color: #ffffff;
+  background-image: gradient(
+    linear, left top, left bottom,
+    from( #aedbff ),
+    to( #00589f )
+  );
+}
+*/
+
+Button {
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+}
+
+FileUpload {
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+}
+
+TabFolder {
+  font: 12px Verdana, "Lucida Sans", Arial, Helvetica, sans-serif;
+  border: none;
+}
+
+TabFolder[BORDER] {
+  border: 0px;
+}
+
+ScrollBar {
+  border: 2px;
+  background-color: #f3f3f4;
+  border-radius: 3px 3px 3px 3px;
+  width: 15px;
+  background-image: none;
+  opacity: 1;
+}
+
+ScrollBar-Thumb {
+  background-color: #999999;
+  border: 1px solid #b4b4b4;
+  border-radius: 1px;
+  background-image: none;
+  min-height: 20px;
+}
+
+ScrollBar-Thumb:pressed {
+  border: 1px solid #999999;
+}

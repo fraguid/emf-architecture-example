@@ -34,7 +34,7 @@
     <extension
             point="org.eclipse.rap.ui.themes">
          <themeContribution
-               file="css/countervision.css"
+               file="css/emf-architecture-example.css"
                themeId="org.eclipse.rap.rwt.theme.Default">
          </themeContribution>
       </extension>
