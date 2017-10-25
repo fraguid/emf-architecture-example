@@ -13,7 +13,7 @@
 <booleanAttribute key="default" value="true"/>
 <booleanAttribute key="default_auto_start" value="true"/>
 <intAttribute key="default_start_level" value="4"/>
-<stringAttribute key="deselected_workspace_plugins" value="it.rcpvision.emf.architecture.example.repository.cdo,it.rcpvision.emf.architecture.example.repository.mybatis,it.rcpvision.emf.architecture.model.cdo,org.eclipse.emf.parsley.examples.rap.targetplatform"/>
+<stringAttribute key="deselected_workspace_plugins" value="it.rcpvision.emf.architecture.example.model.cdo,it.rcpvision.emf.architecture.example.repository.cdo,it.rcpvision.emf.architecture.example.repository.mybatis,org.eclipse.emf.parsley.examples.rap.targetplatform"/>
 <booleanAttribute key="includeOptional" value="true"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>

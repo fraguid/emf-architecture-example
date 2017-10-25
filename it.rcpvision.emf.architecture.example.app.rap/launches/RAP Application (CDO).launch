@@ -42,5 +42,5 @@
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="it.rcpvision.emf.architecture.example.app.rap@default:default,it.rcpvision.emf.architecture.example.model.ecore@default:default,it.rcpvision.emf.architecture.example.repository.api@default:default,it.rcpvision.emf.architecture.example.repository.cdo@3:true,it.rcpvision.emf.architecture.example.service@default:default,it.rcpvision.emf.architecture.example.ui@default:default,it.rcpvision.emf.architecture.model.cdo@default:default,org.eclipse.emf.parsley.examples.rap.targetplatform@default:default"/>
+<stringAttribute key="workspace_bundles" value="it.rcpvision.emf.architecture.example.app.rap@default:default,it.rcpvision.emf.architecture.example.model.cdo@default:default,it.rcpvision.emf.architecture.example.model.ecore@default:default,it.rcpvision.emf.architecture.example.repository.api@default:default,it.rcpvision.emf.architecture.example.repository.cdo@3:true,it.rcpvision.emf.architecture.example.service@default:default,it.rcpvision.emf.architecture.example.ui@default:default,org.eclipse.emf.parsley.examples.rap.targetplatform@default:default"/>
 </launchConfiguration>

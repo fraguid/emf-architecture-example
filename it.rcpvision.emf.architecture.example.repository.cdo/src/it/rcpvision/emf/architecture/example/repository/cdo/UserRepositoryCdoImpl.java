@@ -32,7 +32,8 @@ public class UserRepositoryCdoImpl implements IUserRepository{
 		resource =transaction.getOrCreateResource(USER_RESOURCE_NAME);
 		if(resource.getContents().isEmpty()) {
 			User firstUser = CarsharingFactory.eINSTANCE.createUser();
-			firstUser.setName("pippo");
+			firstUser.setName("Vincenzo");
+			firstUser.setSurname("Caselli");
 			resource.getContents().add(firstUser);
 			try {
 				transaction.commit();
