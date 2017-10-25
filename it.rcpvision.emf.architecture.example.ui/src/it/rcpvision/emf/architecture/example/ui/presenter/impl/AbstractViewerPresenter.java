@@ -53,6 +53,7 @@ public abstract class AbstractViewerPresenter<T extends EObject, S extends IView
 			if(!emfUtil.isNewObject(obj)) {
 				editingStrategy.update(obj);
 				save(obj);
+				editingStrategy.prepare(obj);
 			}else {
 				save(obj);
 				editingStrategy.prepare(obj);
