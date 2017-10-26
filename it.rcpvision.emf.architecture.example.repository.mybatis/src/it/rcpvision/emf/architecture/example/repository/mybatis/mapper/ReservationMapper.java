@@ -71,8 +71,8 @@ public interface ReservationMapper {
     List<Reservation> selectByExample(ReservationExample example);
     
     
-    @Select({ "select", "CAR, PEOPLE, STATE", "FROM RESERVATION r, PEOPLE p", 
-    	"where r.PEOPLE=p.ID and p.ID = #{id,jdbcType=DECIMAL}" })
+    @Select({ "select", "CAR, PEOPLE, STATE", "FROM RESERVATION r, CAR c", 
+    	"where r.CAR=c.ID and c.ID = #{id,jdbcType=DECIMAL}" })
     @Results({
         @Result(column="CAR", property="car", jdbcType=JdbcType.DECIMAL),
         @Result(column="PEOPLE", property="people", jdbcType=JdbcType.DECIMAL),
