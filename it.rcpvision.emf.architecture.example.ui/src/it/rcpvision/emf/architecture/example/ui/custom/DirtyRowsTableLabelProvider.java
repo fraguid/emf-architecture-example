@@ -16,12 +16,12 @@ public class DirtyRowsTableLabelProvider extends TableColumnLabelProvider {
 	@Inject
 	EmfUtil emfUtil;
 
-	Color RED= new Color(Display.getCurrent(),new RGB(255, 0, 0));
+	Color GREEN= new Color(Display.getCurrent(),new RGB(0, 200, 0));
 	
 	@Override
 	public Color getForeground(Object element) {
 		if (emfUtil.isDirty(element)) {
-			return RED;
+			return GREEN;
 		} else {
 			return super.getForeground(element);
 		}
