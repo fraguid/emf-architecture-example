@@ -9,6 +9,7 @@ import org.osgi.service.component.annotations.Component;
 import it.rcpvision.emf.architecture.example.model.carsharing.CarType;
 import it.rcpvision.emf.architecture.example.model.carsharing.CarsharingFactory;
 import it.rcpvision.emf.architecture.example.model.carsharing.Reservation;
+import it.rcpvision.emf.architecture.example.model.carsharing.ReservationState;
 import it.rcpvision.emf.architecture.example.model.carsharing.Vehicle;
 import it.rcpvision.emf.architecture.example.repository.api.IReservationRepository;
 import it.rcpvision.emf.architecture.example.repository.api.IUserRepository;
@@ -72,6 +73,7 @@ public class ReservationRepositoryMyBatisImpl implements IReservationRepository{
 		it.rcpvision.emf.architecture.example.repository.mybatis.model.Reservation dbReservation=new it.rcpvision.emf.architecture.example.repository.mybatis.model.Reservation();
 		dbReservation.setPeople(Short.parseShort(reservation.getUser().getId()));
 		dbReservation.setCar(Short.parseShort(reservation.getVehicle().getId()));
+		dbReservation.setState(Short.parseShort(""+ReservationState.RESERVED_VALUE));
 		return dbReservation;
 	}
 
