@@ -111,6 +111,8 @@ public class VehicleRepositoryMyBatisImpl implements IVehicleRepository{
 		List<Reservation> reservationsByVehicle = reservationMapper.selectByVehicle(dbCar.getId());
 		if(reservationsByVehicle.size()>0) {
 			vehicle.setReservationState(ReservationState.RESERVED);
+		} else {
+			vehicle.setReservationState(ReservationState.FREE);
 		}
 		if(!newObject && notificationBuffer!=null) {
 			notificationBuffer.getNotifications().clear();
